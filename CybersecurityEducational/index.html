@@ -6,15 +6,321 @@
     <title>CyberShield Academy - Cybersecurity Education</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <!-- Animation library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        /* Custom Styles for Enhanced Design */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        /* Enhanced Navigation Bar */
+        .navbar {
+            background: linear-gradient(90deg, #1a1a2e 0%, #16213e 100%) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00d4ff !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+            .navbar-brand:hover {
+                color: #ff00ff !important;
+            }
+
+        .nav-link {
+            color: #e0e0e0 !important;
+            font-weight: 500;
+            padding: 0.5rem 1.2rem !important;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+            .nav-link:hover, .nav-link.active {
+                color: #00d4ff !important;
+                background: rgba(255, 255, 255, 0.1);
+                transform: translateY(-2px);
+            }
+
+        .nav-special-offer {
+            background: linear-gradient(45deg, #00d4ff, #ff00ff);
+            border: none !important;
+            padding: 0.5rem 1.5rem !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+            .nav-special-offer:hover {
+                background: linear-gradient(45deg, #ff00ff, #00d4ff);
+                transform: scale(1.05);
+            }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+            .hero-section h1 {
+                font-size: 3.5rem;
+                font-weight: 800;
+            }
+
+        /* Animated Buttons */
+        .btn-animated {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+            .btn-animated:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+                transition: all 0.5s ease;
+                z-index: -1;
+            }
+
+            .btn-animated:hover:before {
+                left: 100%;
+            }
+
+            .btn-animated:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+        /* Feature Cards */
+        .feature-card {
+            border: none !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 1.8rem;
+            margin: 0 auto;
+        }
+
+        /* Course Cards */
+        .lab-card {
+            border: none !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .lab-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .lab-card-img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            border: none !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+            .pricing-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .pricing-header {
+            padding: 2rem;
+            text-align: center;
+            background: #ffffff;
+        }
+
+            .pricing-header h4 {
+                font-weight: 700;
+            }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+            .pricing-price .period {
+                font-size: 1rem;
+                color: #6c757d;
+            }
+
+        .pricing-features {
+            padding: 1.5rem;
+            background: #f8f9fa;
+        }
+
+            .pricing-features ul {
+                list-style: none;
+                padding: 0;
+            }
+
+        .pricing-footer {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .featured .pricing-header {
+            background: linear-gradient(45deg, #00d4ff, #ff00ff);
+        }
+
+        .special-offer-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            border: none !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+            .testimonial-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .testimonial-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Moving Comments Ticker */
+        .comments-ticker {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: ticker 20s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Pop-Up Ad Styling */
+        .popup-ad {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #ffffff, #e0e0e0);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            z-index: 1000;
+            max-width: 400px;
+            text-align: center;
+            display: none;
+        }
+
+            .popup-ad h5 {
+                color: #1a1a2e;
+                font-weight: 700;
+            }
+
+            .popup-ad p {
+                color: #555;
+            }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 999;
+            display: none;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ff5555;
+        }
+
+        /* Floating Chat Button */
+        .chat-button {
+            transition: transform 0.3s ease;
+        }
+
+            .chat-button:hover {
+                transform: scale(1.1);
+            }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e !important;
+        }
+
+            footer a:hover {
+                color: #00d4ff !important;
+            }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand animate__animated animate__pulse animate__infinite" href="index.html">
                 <i class="fas fa-shield-alt me-2"></i>CyberShield Academy
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -23,22 +329,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
+                        <a class="nav-link active animate__animated animate__fadeIn" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#courses">Courses</a>
+                        <a class="nav-link animate__animated animate__fadeIn" href="#courses">Courses</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#pricing">Pricing</a>
+                        <a class="nav-link animate__animated animate__fadeIn" href="#pricing">Pricing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="security_lab.html">Security Lab</a>
+                        <a class="nav-link animate__animated animate__fadeIn" href="security_lab.html">Security Lab</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="account.html">Account</a>
+                        <a class="nav-link animate__animated animate__fadeIn" href="account.html">Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-primary text-white ms-2" href="#" data-bs-toggle="modal" data-bs-target="#specialOfferModal">Special Offer</a>
+                        <a class="nav-link btn nav-special-offer text-white ms-2 animate__animated animate__fadeIn" href="#" data-bs-toggle="modal" data-bs-target="#specialOfferModal">Special Offer</a>
                     </li>
                 </ul>
             </div>
@@ -53,8 +359,8 @@
                     <h1 class="display-4 fw-bold mb-4">Master Cybersecurity Defense Skills</h1>
                     <p class="lead mb-4">Learn to identify, understand, and protect against the most common cyber threats with our interactive learning platform.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button class="btn btn-primary btn-lg px-4 me-md-2" id="getStartedBtn">Get Started For Free</button>
-                        <a href="#courses" class="btn btn-outline-light btn-lg px-4">Explore Courses</a>
+                        <button class="btn btn-primary btn-lg px-4 me-md-2 btn-animated" id="getStartedBtn">Get Started For Free</button>
+                        <a href="#courses" class="btn btn-outline-light btn-lg px-4 btn-animated">Explore Courses</a>
                     </div>
                     <div class="mt-4">
                         <span class="badge bg-light text-dark me-2"><i class="fas fa-users me-1"></i> 10,000+ Students</span>
@@ -69,6 +375,17 @@
         </div>
     </section>
 
+    <!-- Moving Comments Ticker -->
+    <section class="comments-ticker">
+        <div class="ticker-content">
+            <span class="mx-3"><i class="fas fa-info-circle text-info me-2"></i> Did you know? 81% of data breaches are caused by weak or stolen passwords.</span>
+            <span class="mx-3"><i class="fas fa-info-circle text-info me-2"></i> Tip: Enable two-factor authentication on all your important accounts.</span>
+            <span class="mx-3"><i class="fas fa-info-circle text-info me-2"></i> Security fact: It takes hackers just 12 minutes on average to start attacking a new system online.</span>
+            <span class="mx-3"><i class="fas fa-info-circle text-info me-2"></i> Reminder: Update your software regularly to protect against known vulnerabilities.</span>
+            <span class="mx-3"><i class="fas fa-info-circle text-info me-2"></i> Phishing attacks account for more than 80% of reported security incidents.</span>
+        </div>
+    </section>
+
     <!-- Why Choose Us Section -->
     <section class="py-5 bg-light">
         <div class="container">
@@ -79,7 +396,7 @@
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-md-4 animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                <div class="col-md-4 animate__animated animate__fadeInUp">
                     <div class="card h-100 feature-card">
                         <div class="card-body text-center p-4">
                             <div class="feature-icon bg-primary bg-gradient text-white rounded-circle mb-4">
@@ -90,7 +407,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-1s">
                     <div class="card h-100 feature-card">
                         <div class="card-body text-center p-4">
                             <div class="feature-icon bg-success bg-gradient text-white rounded-circle mb-4">
@@ -101,7 +418,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-2s">
                     <div class="card h-100 feature-card">
                         <div class="card-body text-center p-4">
                             <div class="feature-icon bg-info bg-gradient text-white rounded-circle mb-4">
@@ -126,7 +443,7 @@
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp">
                     <div class="card h-100 lab-card">
                         <div class="position-relative">
                             <img src="images/logo.jpg" class="card-img-top lab-card-img" alt="Web Security">
@@ -137,15 +454,15 @@
                             <p class="card-text">Learn about XSS, CSRF, SQL injection and other common web vulnerabilities.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn" data-course="web-security">Learn More</button>
-                                    <button type="button" class="btn btn-sm btn-primary">Enroll</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn btn-animated" data-course="web-security">Learn More</button>
+                                    <button type="button" class="btn btn-sm btn-primary btn-animated">Enroll</button>
                                 </div>
                                 <small class="text-muted">8 modules</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp animate__delay-1s">
                     <div class="card h-100 lab-card">
                         <div class="position-relative">
                             <img src="images/logo.jpg" class="card-img-top lab-card-img" alt="Network Security">
@@ -156,15 +473,15 @@
                             <p class="card-text">Understand network vulnerabilities and implement effective defenses.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn" data-course="network-security">Learn More</button>
-                                    <button type="button" class="btn btn-sm btn-primary">Enroll</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn btn-animated" data-course="network-security">Learn More</button>
+                                    <button type="button" class="btn btn-sm btn-primary btn-animated">Enroll</button>
                                 </div>
                                 <small class="text-muted">10 modules</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp animate__delay-2s">
                     <div class="card h-100 lab-card">
                         <div class="position-relative">
                             <img src="images/logo.jpg" class="card-img-top lab-card-img" alt="Secure Coding">
@@ -175,15 +492,15 @@
                             <p class="card-text">Write secure code and avoid common security pitfalls in development.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn" data-course="secure-coding">Learn More</button>
-                                    <button type="button" class="btn btn-sm btn-primary">Enroll</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn btn-animated" data-course="secure-coding">Learn More</button>
+                                    <button type="button" class="btn btn-sm btn-primary btn-animated">Enroll</button>
                                 </div>
                                 <small class="text-muted">12 modules</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp animate__delay-3s">
                     <div class="card h-100 lab-card">
                         <div class="position-relative">
                             <img src="images/logo.jpg" class="card-img-top lab-card-img" alt="Ethical Hacking">
@@ -194,15 +511,15 @@
                             <p class="card-text">Learn ethical hacking techniques to identify and fix security vulnerabilities.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn" data-course="ethical-hacking">Learn More</button>
-                                    <button type="button" class="btn btn-sm btn-primary">Enroll</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn btn-animated" data-course="ethical-hacking">Learn More</button>
+                                    <button type="button" class="btn btn-sm btn-primary btn-animated">Enroll</button>
                                 </div>
                                 <small class="text-muted">15 modules</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" data-wow-delay="0.5s">
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp animate__delay-4s">
                     <div class="card h-100 lab-card">
                         <div class="position-relative">
                             <img src="images/logo.jpg" class="card-img-top lab-card-img" alt="Security Awareness">
@@ -213,15 +530,15 @@
                             <p class="card-text">Essential security knowledge for all employees to protect organizational assets.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn" data-course="security-awareness">Learn More</button>
-                                    <button type="button" class="btn btn-sm btn-primary">Enroll</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn btn-animated" data-course="security-awareness">Learn More</button>
+                                    <button type="button" class="btn btn-sm btn-primary btn-animated">Enroll</button>
                                 </div>
                                 <small class="text-muted">6 modules</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" data-wow-delay="0.6s">
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp animate__delay-5s">
                     <div class="card h-100 lab-card">
                         <div class="position-relative">
                             <img src="images/logo.jpg" class="card-img-top lab-card-img" alt="Incident Response">
@@ -232,8 +549,8 @@
                             <p class="card-text">Develop effective incident response strategies to handle security breaches.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn" data-course="incident-response">Learn More</button>
-                                    <button type="button" class="btn btn-sm btn-primary">Enroll</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary course-info-btn btn-animated" data-course="incident-response">Learn More</button>
+                                    <button type="button" class="btn btn-sm btn-primary btn-animated">Enroll</button>
                                 </div>
                                 <small class="text-muted">9 modules</small>
                             </div>
@@ -242,7 +559,7 @@
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a href="#" class="btn btn-lg btn-outline-primary">View All Courses</a>
+                <a href="#" class="btn btn-lg btn-outline-primary btn-animated">View All Courses</a>
             </div>
         </div>
     </section>
@@ -257,7 +574,7 @@
                 </div>
             </div>
             <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp">
                     <div class="pricing-card">
                         <div class="pricing-header">
                             <h4>Free Trial</h4>
@@ -277,11 +594,11 @@
                             </ul>
                         </div>
                         <div class="pricing-footer">
-                            <button class="btn btn-outline-primary btn-lg w-100" id="freePlanBtn">Start Free Trial</button>
+                            <button class="btn btn-outline-primary btn-lg w-100 btn-animated" id="freePlanBtn">Start Free Trial</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp animate__delay-1s">
                     <div class="pricing-card featured">
                         <div class="pricing-header bg-primary text-white">
                             <h4>Standard</h4>
@@ -302,11 +619,11 @@
                             </ul>
                         </div>
                         <div class="pricing-footer">
-                            <button class="btn btn-primary btn-lg w-100" id="standardPlanBtn">Get Started</button>
+                            <button class="btn btn-primary btn-lg w-100 btn-animated" id="standardPlanBtn">Get Started</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp animate__delay-2s">
                     <div class="pricing-card">
                         <div class="pricing-header">
                             <h4>Premium</h4>
@@ -327,7 +644,7 @@
                             </ul>
                         </div>
                         <div class="pricing-footer">
-                            <button class="btn btn-outline-primary btn-lg w-100" id="premiumPlanBtn">Get Premium</button>
+                            <button class="btn btn-outline-primary btn-lg w-100 btn-animated" id="premiumPlanBtn">Get Premium</button>
                         </div>
                     </div>
                 </div>
@@ -345,10 +662,10 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 animate__animated animate__fadeInUp">
                     <div class="testimonial-card">
                         <div class="text-center mb-4">
-                            <img src="https://via.placeholder.com/150" alt="Student" class="testimonial-avatar">
+                            <img src="images/profile.jpg" alt="Student" class="testimonial-avatar">
                             <div class="mt-3">
                                 <i class="fas fa-star text-warning"></i>
                                 <i class="fas fa-star text-warning"></i>
@@ -361,10 +678,10 @@
                         <p class="testimonial-author">- Sarah Johnson, Security Analyst</p>
                     </div>
                 </div>
-                <div class="col-lg-4 animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                <div class="col-lg-4 animate__animated animate__fadeInUp animate__delay-1s">
                     <div class="testimonial-card">
                         <div class="text-center mb-4">
-                            <img src="https://via.placeholder.com/150" alt="Student" class="testimonial-avatar">
+                            <img src="images/profile.jpg" alt="Student" class="testimonial-avatar">
                             <div class="mt-3">
                                 <i class="fas fa-star text-warning"></i>
                                 <i class="fas fa-star text-warning"></i>
@@ -377,10 +694,10 @@
                         <p class="testimonial-author">- Michael Chen, Software Developer</p>
                     </div>
                 </div>
-                <div class="col-lg-4 animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-4 animate__animated animate__fadeInUp animate__delay-2s">
                     <div class="testimonial-card">
                         <div class="text-center mb-4">
-                            <img src="https://via.placeholder.com/150" alt="Student" class="testimonial-avatar">
+                            <img src="images/profile.jpg" alt="Student" class="testimonial-avatar">
                             <div class="mt-3">
                                 <i class="fas fa-star text-warning"></i>
                                 <i class="fas fa-star text-warning"></i>
@@ -406,7 +723,7 @@
                     <p class="lead mb-0">Join thousands of professionals who have enhanced their security skills with CyberShield Academy.</p>
                 </div>
                 <div class="col-lg-4 text-lg-end mt-4 mt-lg-0 animate__animated animate__fadeIn">
-                    <button class="btn btn-light btn-lg px-4 me-md-2" id="ctaGetStartedBtn">Get Started Today</button>
+                    <button class="btn btn-light btn-lg px-4 me-md-2 btn-animated" id="ctaGetStartedBtn">Get Started Today</button>
                 </div>
             </div>
         </div>
@@ -468,7 +785,7 @@
             <hr class="my-4">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2025 CyberShield Academy. All rights reserved.</p>
+                    <p class="mb-0">© 2025 CyberShield Academy. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <p class="mb-0">Designed for educational purposes only</p>
@@ -495,15 +812,15 @@
                     <div class="alert alert-warning">
                         <i class="fas fa-exclamation-circle me-2"></i> This offer expires soon. Don't miss out!
                     </div>
-                    <a href="#" class="btn btn-success btn-lg w-100 mb-3" id="specialOfferBtn">Claim Your 50% Discount</a>
+                    <a href="#" class="btn btn-success btn-lg w-100 mb-3 btn-animated" id="specialOfferBtn">Claim Your 50% Discount</a>
                     <div class="d-flex justify-content-center">
-                        <a href="/resources/cybersecurity_guide.txt" class="text-decoration-none" id="freeResourceLink">
+                        <a href="#" class="text-decoration-none" id="freeResourceLink">
                             <small>Download our free cybersecurity guide <i class="fas fa-download ms-1"></i></small>
                         </a>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Maybe Later</button>
+                    <button type="button" class="btn btn-secondary btn-animated" data-bs-dismiss="modal">Maybe Later</button>
                 </div>
             </div>
         </div>
@@ -521,8 +838,8 @@
                     <!-- Content will be dynamically inserted here -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="enrollNowBtn">Enroll Now</button>
+                    <button type="button" class="btn btn-secondary btn-animated" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-animated" id="enrollNowBtn">Enroll Now</button>
                 </div>
             </div>
         </div>
@@ -542,19 +859,21 @@
                         <h4>Stay Updated on Cybersecurity Trends</h4>
                         <p>Join our newsletter to receive the latest security news, tips, and exclusive offers.</p>
                     </div>
-                    <form id="newsletterForm">
+                    <form id="newsletterForm" class="needs-validation" novalidate>
                         <div class="mb-3">
                             <label for="newsletterEmail" class="form-label">Email address</label>
                             <input type="email" class="form-control" id="newsletterEmail" placeholder="name@example.com" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="privacyCheck" required>
                             <label class="form-check-label" for="privacyCheck">I agree to the privacy policy</label>
+                            <div class="invalid-feedback">You must agree to the privacy policy.</div>
                         </div>
-                        <button type="submit" class="btn btn-info text-white w-100">Subscribe</button>
+                        <button type="submit" class="btn btn-info text-white w-100 btn-animated">Subscribe</button>
                     </form>
                     <div class="mt-3 text-center">
-                        <a href="/resources/sample_newsletter.txt" class="text-decoration-none" id="sampleNewsletterLink">
+                        <a href="#" class="text-decoration-none" id="sampleNewsletterLink">
                             <small>Download a sample newsletter <i class="fas fa-download ms-1"></i></small>
                         </a>
                     </div>
@@ -563,31 +882,81 @@
         </div>
     </div>
 
+    <!-- Pop-Up Ad -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="popup-ad animate__animated animate__zoomIn" id="popupAd">
+        <i class="fas fa-times close-popup" id="closePopup"></i>
+        <h5>Download Our Free Cybersecurity Guide!</h5>
+        <p>Get tips and tricks to stay secure online. Download now!</p>
+        <button class="btn btn-primary btn-animated" id="downloadBtn">Download Now</button>
+    </div>
+
     <!-- Floating Chat Button -->
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-        <button class="btn btn-primary rounded-circle p-3 shadow" id="chatButton">
+        <button class="btn btn-primary rounded-circle p-3 shadow chat-button" id="chatButton">
             <i class="fas fa-comments"></i>
         </button>
     </div>
 
-    <!-- Animated Comments -->
-    <div class="position-fixed bottom-0 start-0 p-3 animate__animated animate__fadeInUp" id="animatedComment" style="display: none; z-index: 10; max-width: 300px;">
-        <div class="alert alert-info shadow-sm">
-            <button type="button" class="btn-close float-end" id="closeComment"></button>
-            <p class="mb-0"><i class="fas fa-info-circle me-2"></i> <span id="commentText">Did you know? 81% of data breaches are caused by weak or stolen passwords.</span></p>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="scripts.js"></script>
     <script>
-        // Additional JavaScript for enhanced features
         document.addEventListener('DOMContentLoaded', function () {
+            // Newsletter Form Validation
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function (event) {
+                    if (!newsletterForm.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    } else {
+                        event.preventDefault();
+                        alert('Thank you for subscribing to our newsletter!');
+                        newsletterForm.reset();
+                        const newsletterModal = bootstrap.Modal.getInstance(document.getElementById('newsletterModal'));
+                        newsletterModal.hide();
+                    }
+                    newsletterForm.classList.add('was-validated');
+                });
+            }
+
             // Show newsletter popup after 5 seconds
             setTimeout(function () {
                 const newsletterModal = new bootstrap.Modal(document.getElementById('newsletterModal'));
                 newsletterModal.show();
             }, 5000);
+
+            // Pop-Up Ad Logic
+            const popupOverlay = document.getElementById('popupOverlay');
+            const popupAd = document.getElementById('popupAd');
+            const closePopup = document.getElementById('closePopup');
+            const downloadBtn = document.getElementById('downloadBtn');
+
+            // Show pop-up after 10 seconds
+            setTimeout(() => {
+                popupOverlay.style.display = 'block';
+                popupAd.style.display = 'block';
+            }, 10000);
+
+            // Close pop-up
+            closePopup.addEventListener('click', () => {
+                popupOverlay.style.display = 'none';
+                popupAd.style.display = 'none';
+            });
+
+            // Download empty .txt file
+            downloadBtn.addEventListener('click', () => {
+                const link = document.createElement('a');
+                const fileContent = '';
+                const blob = new Blob([fileContent], { type: 'text/plain' });
+                link.href = URL.createObjectURL(blob);
+                link.download = 'Cybersecurity_Guide.txt';
+                link.click();
+                URL.revokeObjectURL(link.href);
+
+                // Close pop-up after download
+                popupOverlay.style.display = 'none';
+                popupAd.style.display = 'none';
+            });
 
             // Course info buttons
             const courseInfoBtns = document.querySelectorAll('.course-info-btn');
@@ -599,7 +968,6 @@
                     const course = this.getAttribute('data-course');
                     let content = '';
 
-                    // Generate content based on course
                     switch (course) {
                         case 'web-security':
                             content = `
@@ -682,6 +1050,114 @@
                                     </ul>
                                 `;
                             break;
+                        case 'secure-coding':
+                            content = `
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img src="https://via.placeholder.com/300x200?text=Secure+Coding" class="img-fluid rounded mb-3" alt="Secure Coding">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h4>Secure Coding Practices</h4>
+                                            <div class="mb-3">
+                                                <span class="badge bg-danger me-1">Advanced</span>
+                                                <span class="badge bg-secondary me-1">12 Modules</span>
+                                                <span class="badge bg-success">Certificate</span>
+                                            </div>
+                                            <p>Learn to write secure code and avoid common security pitfalls in software development.</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <h5>What You'll Learn</h5>
+                                    <ul>
+                                        <li>Secure coding principles</li>
+                                        <li>Preventing injection attacks</li>
+                                        <li>Secure session management</li>
+                                        <li>Handling sensitive data securely</li>
+                                        <li>Code review for security</li>
+                                    </ul>
+                                `;
+                            break;
+                        case 'ethical-hacking':
+                            content = `
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img src="https://via.placeholder.com/300x200?text=Ethical+Hacking" class="img-fluid rounded mb-3" alt="Ethical Hacking">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h4>Ethical Hacking Fundamentals</h4>
+                                            <div class="mb-3">
+                                                <span class="badge bg-danger me-1">Advanced</span>
+                                                <span class="badge bg-secondary me-1">15 Modules</span>
+                                                <span class="badge bg-success">Certificate</span>
+                                            </div>
+                                            <p>Learn ethical hacking techniques to identify and fix security vulnerabilities.</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <h5>What You'll Learn</h5>
+                                    <ul>
+                                        <li>Penetration testing basics</li>
+                                        <li>Exploiting vulnerabilities safely</li>
+                                        <li>Reporting and mitigation strategies</li>
+                                        <li>Social engineering defenses</li>
+                                        <li>Advanced scanning techniques</li>
+                                    </ul>
+                                `;
+                            break;
+                        case 'security-awareness':
+                            content = `
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img src="https://via.placeholder.com/300x200?text=Security+Awareness" class="img-fluid rounded mb-3" alt="Security Awareness">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h4>Security Awareness Training</h4>
+                                            <div class="mb-3">
+                                                <span class="badge bg-primary me-1">Beginner</span>
+                                                <span class="badge bg-secondary me-1">6 Modules</span>
+                                                <span class="badge bg-success">Certificate</span>
+                                            </div>
+                                            <p>Essential security knowledge for all employees to protect organizational assets.</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <h5>What You'll Learn</h5>
+                                    <ul>
+                                        <li>Phishing awareness</li>
+                                        <li>Password best practices</li>
+                                        <li>Safe internet usage</li>
+                                        <li>Recognizing social engineering</li>
+                                        <li>Data protection basics</li>
+                                    </ul>
+                                `;
+                            break;
+                        case 'incident-response':
+                            content = `
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img src="https://via.placeholder.com/300x200?text=Incident+Response" class="img-fluid rounded mb-3" alt="Incident Response">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h4>Incident Response Planning</h4>
+                                            <div class="mb-3">
+                                                <span class="badge bg-warning text-dark me-1">Intermediate</span>
+                                                <span class="badge bg-secondary me-1">9 Modules</span>
+                                                <span class="badge bg-success">Certificate</span>
+                                            </div>
+                                            <p>Develop effective incident response strategies to handle security breaches.</p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <h5>What You'll Learn</h5>
+                                    <ul>
+                                        <li>Incident response lifecycle</li>
+                                        <li>Building an incident response team</li>
+                                        <li>Containment strategies</li>
+                                        <li>Post-incident analysis</li>
+                                        <li>Legal and compliance considerations</li>
+                                    </ul>
+                                `;
+                            break;
                         default:
                             content = `<p>Course information coming soon!</p>`;
                     }
@@ -696,8 +1172,6 @@
             if (freeResourceLink) {
                 freeResourceLink.addEventListener('click', function (e) {
                     e.preventDefault();
-
-                    // Create and download an empty text file
                     const element = document.createElement('a');
                     const file = new Blob(['# Cybersecurity Best Practices Guide\n\nThis educational resource provides an overview of cybersecurity best practices for personal and organizational security.\n\n## Contents\n\n1. Password Security\n2. Multi-Factor Authentication\n3. Safe Browsing Habits\n4. Email Security\n5. Device Security\n\n[This is an educational demonstration file]'], { type: 'text/plain' });
                     element.href = URL.createObjectURL(file);
@@ -713,8 +1187,6 @@
             if (sampleNewsletterLink) {
                 sampleNewsletterLink.addEventListener('click', function (e) {
                     e.preventDefault();
-
-                    // Create and download an empty text file
                     const element = document.createElement('a');
                     const file = new Blob(['# CyberShield Academy Newsletter - Sample\n\nThis is a sample of our monthly cybersecurity newsletter that provides updates on the latest threats and security best practices.\n\n## This Month\'s Highlights\n\n- New ransomware trends to watch\n- How to implement zero trust security\n- Upcoming webinar: Securing the cloud\n\n[This is an educational demonstration file]'], { type: 'text/plain' });
                     element.href = URL.createObjectURL(file);
@@ -724,51 +1196,6 @@
                     document.body.removeChild(element);
                 });
             }
-
-            // Animated comments system
-            const animatedComment = document.getElementById('animatedComment');
-            const commentText = document.getElementById('commentText');
-            const closeComment = document.getElementById('closeComment');
-
-            const comments = [
-                "Did you know? 81% of data breaches are caused by weak or stolen passwords.",
-                "Tip: Enable two-factor authentication on all your important accounts.",
-                "Security fact: It takes hackers just 12 minutes on average to start attacking a new system online.",
-                "Reminder: Update your software regularly to protect against known vulnerabilities.",
-                "Phishing attacks account for more than 80% of reported security incidents."
-            ];
-
-            // Show random comment every 30 seconds
-            function showRandomComment() {
-                const randomComment = comments[Math.floor(Math.random() * comments.length)];
-                commentText.textContent = randomComment;
-                animatedComment.style.display = 'block';
-                animatedComment.classList.remove('animate__fadeOutDown');
-                animatedComment.classList.add('animate__fadeInUp');
-
-                // Hide after 10 seconds
-                setTimeout(function () {
-                    hideComment();
-                }, 10000);
-            }
-
-            function hideComment() {
-                animatedComment.classList.remove('animate__fadeInUp');
-                animatedComment.classList.add('animate__fadeOutDown');
-                setTimeout(function () {
-                    animatedComment.style.display = 'none';
-                }, 1000);
-            }
-
-            if (closeComment) {
-                closeComment.addEventListener('click', hideComment);
-            }
-
-            // Initial comment after 10 seconds
-            setTimeout(showRandomComment, 10000);
-
-            // Then show comments periodically
-            setInterval(showRandomComment, 30000);
 
             // Chat button functionality
             const chatButton = document.getElementById('chatButton');
@@ -781,7 +1208,6 @@
             // Special offer countdown
             const countdownElement = document.getElementById('offer-countdown');
             if (countdownElement) {
-                // Set countdown for 24 hours
                 const countDownDate = new Date();
                 countDownDate.setHours(countDownDate.getHours() + 24);
 
@@ -809,6 +1235,25 @@
                     e.preventDefault();
                     window.location.href = 'payment_demo.html';
                 });
+            });
+
+            // Button Click Animation
+            document.querySelectorAll('.btn-animated').forEach(button => {
+                button.addEventListener('click', () => {
+                    button.classList.add('animate__animated', 'animate__pulse');
+                });
+            });
+
+            // Scroll Animation for Navbar
+            window.addEventListener('scroll', () => {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.style.padding = '0.5rem 0';
+                    navbar.style.background = 'linear-gradient(90deg, #16213e 0%, #1a1a2e 100%) !important';
+                } else {
+                    navbar.style.padding = '1rem 0';
+                    navbar.style.background = 'linear-gradient(90deg, #1a1a2e 0%, #16213e 100%) !important';
+                }
             });
         });
     </script>

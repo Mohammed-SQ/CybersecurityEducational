@@ -75,6 +75,7 @@
     <Content Include="images\banner.jpg" />
     <Content Include="images\course.jpeg" />
     <Content Include="images\logo.jpg" />
+    <Content Include="images\profile.jpg" />
     <Content Include="index.html" />
     <Content Include="payment_demo.html" />
     <Content Include="security_lab.html" />
