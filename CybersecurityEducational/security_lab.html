@@ -1,0 +1,1471 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Security Lab - CyberShield Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">CyberShield Academy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="account.html">Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="payment_demo.html">Payment Demo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Security Lab</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="fw-bold mb-4">Interactive Security Lab</h1>
+                <p class="lead">Explore and learn about various cybersecurity threats and protection techniques through hands-on demonstrations.</p>
+                <div class="alert alert-info">
+                    <strong>Educational Purpose:</strong> All demonstrations are designed for learning and awareness in a controlled environment.
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Lab Navigation -->
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Choose a Security Demonstration</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <div class="feature-icon bg-danger bg-gradient text-white rounded-circle mb-3">
+                                            <i class="fas fa-bug"></i>
+                                        </div>
+                                        <h5 class="card-title">Phishing Awareness</h5>
+                                        <p class="card-text">Learn to identify and avoid phishing attempts.</p>
+                                        <a href="#phishing-demo" class="btn btn-outline-primary mt-2" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="phishing-demo">Start Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <div class="feature-icon bg-warning bg-gradient text-white rounded-circle mb-3">
+                                            <i class="fas fa-lock"></i>
+                                        </div>
+                                        <h5 class="card-title">Password Security</h5>
+                                        <p class="card-text">Test password strength and learn best practices.</p>
+                                        <a href="#password-demo" class="btn btn-outline-primary mt-2" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="password-demo">Start Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body text-center p-4">
+                                        <div class="feature-icon bg-info bg-gradient text-white rounded-circle mb-3">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <h5 class="card-title">Social Engineering</h5>
+                                        <p class="card-text">Understand common social engineering tactics.</p>
+                                        <a href="#social-demo" class="btn btn-outline-primary mt-2" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="social-demo">Start Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phishing Awareness Demo -->
+        <div class="collapse mb-5" id="phishing-demo">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-danger">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0"><i class="fas fa-fishing me-2"></i> Phishing Awareness Training</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-warning mb-4">
+                                <i class="fas fa-exclamation-triangle me-2"></i> This demonstration shows examples of phishing attempts to help you identify them in real life.
+                            </div>
+
+                            <h5 class="mb-3">Can you spot the phishing emails?</h5>
+                            <p>Review the following email examples and determine which ones are legitimate and which are phishing attempts.</p>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-header">
+                                            <strong>Email Example 1</strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="email-example p-3 border rounded">
+                                                <p><strong>From:</strong> security@paypa1.com</p>
+                                                <p><strong>Subject:</strong> URGENT: Your account has been compromised</p>
+                                                <hr>
+                                                <p>Dear Valued Customer,</p>
+                                                <p>We have detected suspicious activity on your account. Your account has been temporarily limited. To restore full access, please verify your information immediately by clicking the link below:</p>
+                                                <p><a href="#" class="text-decoration-none">https://paypa1-secure.com/verify</a></p>
+                                                <p>If you don't verify within 24 hours, your account will be permanently suspended.</p>
+                                                <p>PayPa1 Security Team</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-sm btn-danger phishing-answer" data-correct="true" data-email="1">Phishing</button>
+                                                <button class="btn btn-sm btn-success phishing-answer" data-correct="false" data-email="1">Legitimate</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-header">
+                                            <strong>Email Example 2</strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="email-example p-3 border rounded">
+                                                <p><strong>From:</strong> no-reply@amazon.com</p>
+                                                <p><strong>Subject:</strong> Your Amazon order #112-3456789-1234567 has shipped</p>
+                                                <hr>
+                                                <p>Hello John,</p>
+                                                <p>Your package with the following items has shipped:</p>
+                                                <p>1x Wireless Headphones</p>
+                                                <p>You can track your package at any time by visiting Your Orders on Amazon.com.</p>
+                                                <p>Thank you for shopping with us.</p>
+                                                <p>Amazon Customer Service</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-sm btn-danger phishing-answer" data-correct="false" data-email="2">Phishing</button>
+                                                <button class="btn btn-sm btn-success phishing-answer" data-correct="true" data-email="2">Legitimate</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-header">
+                                            <strong>Email Example 3</strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="email-example p-3 border rounded">
+                                                <p><strong>From:</strong> microsoft365@microsoft-verify.net</p>
+                                                <p><strong>Subject:</strong> Your Microsoft 365 subscription is expiring</p>
+                                                <hr>
+                                                <p>Dear User,</p>
+                                                <p>Your Microsoft 365 subscription will expire in 2 days. To avoid service interruption, please update your payment information by clicking the button below:</p>
+                                                <p><button class="btn btn-primary btn-sm">Update Payment</button></p>
+                                                <p>If you do not update your payment information, your account will be suspended.</p>
+                                                <p>Microsoft Support Team</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-sm btn-danger phishing-answer" data-correct="true" data-email="3">Phishing</button>
+                                                <button class="btn btn-sm btn-success phishing-answer" data-correct="false" data-email="3">Legitimate</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-header">
+                                            <strong>Email Example 4</strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="email-example p-3 border rounded">
+                                                <p><strong>From:</strong> support@dropbox.com</p>
+                                                <p><strong>Subject:</strong> Someone shared a document with you</p>
+                                                <hr>
+                                                <p>Hi there,</p>
+                                                <p>Jane Smith (jane.smith@company.com) has shared a document with you on Dropbox.</p>
+                                                <p><strong>Document:</strong> Q2_Financial_Report.xlsx</p>
+                                                <p>You can view this file on dropbox.com by clicking the link below:</p>
+                                                <p><a href="#" class="text-decoration-none">View document on Dropbox</a></p>
+                                                <p>The Dropbox Team</p>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-sm btn-danger phishing-answer" data-correct="false" data-email="4">Phishing</button>
+                                                <button class="btn btn-sm btn-success phishing-answer" data-correct="true" data-email="4">Legitimate</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="phishing-results" class="alert alert-info d-none">
+                                <h5 class="alert-heading">Your Results</h5>
+                                <p>You correctly identified <span id="phishing-score">0</span> out of 4 emails.</p>
+                                <div id="phishing-feedback"></div>
+                            </div>
+
+                            <div class="card mt-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0">How to Identify Phishing Attempts</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6 class="mb-3">Common Red Flags:</h6>
+                                            <ul class="list-group mb-4">
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-exclamation-triangle text-danger me-3"></i>
+                                                    <div>
+                                                        <strong>Suspicious Sender Address</strong>
+                                                        <p class="mb-0">Look for misspelled domain names (paypa1.com vs paypal.com)</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-exclamation-triangle text-danger me-3"></i>
+                                                    <div>
+                                                        <strong>Urgent Action Required</strong>
+                                                        <p class="mb-0">Creating a sense of urgency to bypass your critical thinking</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-exclamation-triangle text-danger me-3"></i>
+                                                    <div>
+                                                        <strong>Generic Greetings</strong>
+                                                        <p class="mb-0">"Dear Customer" instead of your actual name</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-exclamation-triangle text-danger me-3"></i>
+                                                    <div>
+                                                        <strong>Suspicious Links</strong>
+                                                        <p class="mb-0">Hover over links to see the actual URL before clicking</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="mb-3">Protective Measures:</h6>
+                                            <ul class="list-group mb-4">
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-shield-alt text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Verify Directly</strong>
+                                                        <p class="mb-0">Contact the company directly through their official website</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-shield-alt text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Check the URL</strong>
+                                                        <p class="mb-0">Ensure you're on the legitimate website before entering credentials</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-shield-alt text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Use Multi-Factor Authentication</strong>
+                                                        <p class="mb-0">Adds an extra layer of security even if credentials are compromised</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-shield-alt text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Keep Software Updated</strong>
+                                                        <p class="mb-0">Ensures you have the latest security patches</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Password Security Demo -->
+        <div class="collapse mb-5" id="password-demo">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-warning">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0"><i class="fas fa-key me-2"></i> Password Security Analyzer</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info mb-4">
+                                <i class="fas fa-info-circle me-2"></i> This tool analyzes password strength and demonstrates common password vulnerabilities.
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-primary text-white">
+                                            <h5 class="mb-0">Password Strength Tester</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <form id="passwordStrengthForm">
+                                                <div class="mb-3">
+                                                    <label for="passwordInput" class="form-label">Enter a password to test:</label>
+                                                    <div class="input-group">
+                                                        <input type="password" class="form-control" id="passwordInput" placeholder="Enter password">
+                                                        <button class="btn btn-outline-secondary" type="button" id="togglePasswordVisibility">
+                                                            <i class="fas fa-eye"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="form-text">We don't store or transmit your password anywhere.</div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label class="form-label">Password Strength:</label>
+                                                    <div class="progress">
+                                                        <div id="passwordStrengthBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div id="passwordStrengthText" class="form-text mt-1">Enter a password to see its strength</div>
+                                                </div>
+
+                                                <div id="passwordFeedback" class="mb-3"></div>
+
+                                                <button type="submit" class="btn btn-primary">Analyze Password</button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-header bg-danger text-white">
+                                            <h5 class="mb-0">Common Password Attacks</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="accordion" id="passwordAttacksAccordion">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingBruteForce">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBruteForce" aria-expanded="true" aria-controls="collapseBruteForce">
+                                                            <i class="fas fa-hammer me-2"></i> Brute Force Attack
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseBruteForce" class="accordion-collapse collapse show" aria-labelledby="headingBruteForce" data-bs-parent="#passwordAttacksAccordion">
+                                                        <div class="accordion-body">
+                                                            <p><strong>How it works:</strong> Attackers try every possible combination of characters until they find the correct password.</p>
+                                                            <p><strong>Example:</strong> A 6-character password using only lowercase letters has 26<sup>6</sup> = 308,915,776 possible combinations. Modern computers can try millions of combinations per second.</p>
+                                                            <p><strong>Defense:</strong> Use long, complex passwords and implement account lockouts after failed attempts.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingDictionary">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDictionary" aria-expanded="false" aria-controls="collapseDictionary">
+                                                            <i class="fas fa-book me-2"></i> Dictionary Attack
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseDictionary" class="accordion-collapse collapse" aria-labelledby="headingDictionary" data-bs-parent="#passwordAttacksAccordion">
+                                                        <div class="accordion-body">
+                                                            <p><strong>How it works:</strong> Attackers use a list of common words, phrases, and known passwords to try to access accounts.</p>
+                                                            <p><strong>Example:</strong> Using lists of the most common passwords like "password123" or "qwerty" to quickly check many accounts.</p>
+                                                            <p><strong>Defense:</strong> Avoid common words and phrases. Use random combinations of characters or passphrases.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingRainbow">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRainbow" aria-expanded="false" aria-controls="collapseRainbow">
+                                                            <i class="fas fa-rainbow me-2"></i> Rainbow Table Attack
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseRainbow" class="accordion-collapse collapse" aria-labelledby="headingRainbow" data-bs-parent="#passwordAttacksAccordion">
+                                                        <div class="accordion-body">
+                                                            <p><strong>How it works:</strong> Attackers use pre-computed tables of password hashes to quickly find the original password from a stolen hash.</p>
+                                                            <p><strong>Example:</strong> If a database of hashed passwords is breached, rainbow tables can be used to reverse those hashes back to the original passwords.</p>
+                                                            <p><strong>Defense:</strong> Properly salt and hash passwords using modern algorithms like bcrypt or Argon2.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-success text-white">
+                                            <h5 class="mb-0">Password Best Practices</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="mb-3">Create Strong Passwords:</h6>
+                                            <ul class="list-group mb-4">
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Length</strong>
+                                                        <p class="mb-0">Use at least 12 characters; longer is better</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Complexity</strong>
+                                                        <p class="mb-0">Mix uppercase, lowercase, numbers, and special characters</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Uniqueness</strong>
+                                                        <p class="mb-0">Use different passwords for different accounts</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Randomness</strong>
+                                                        <p class="mb-0">Avoid predictable patterns and personal information</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+
+                                            <h6 class="mb-3">Password Management:</h6>
+                                            <ul class="list-group mb-4">
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Use a Password Manager</strong>
+                                                        <p class="mb-0">Securely store and generate strong, unique passwords</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Enable Two-Factor Authentication</strong>
+                                                        <p class="mb-0">Add an extra layer of security beyond passwords</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Regular Updates</strong>
+                                                        <p class="mb-0">Change passwords periodically, especially for critical accounts</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Monitor for Breaches</strong>
+                                                        <p class="mb-0">Use services that alert you if your accounts are compromised</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+
+                                            <div class="alert alert-info">
+                                                <h6 class="alert-heading"><i class="fas fa-lightbulb me-2"></i> Password Alternative: Passphrases</h6>
+                                                <p class="mb-0">Consider using passphrases - longer sequences of random words that are easier to remember but harder to crack.</p>
+                                                <p class="mb-0"><strong>Example:</strong> "correct-horse-battery-staple" is more secure and memorable than "P@ssw0rd!"</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-header bg-info text-white">
+                                            <h5 class="mb-0">Password Cracking Time Estimator</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>See how long it would take to crack passwords of different complexity:</p>
+
+                                            <table class="table table-bordered">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th>Password Example</th>
+                                                        <th>Complexity</th>
+                                                        <th>Estimated Cracking Time</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>password</td>
+                                                        <td><span class="badge bg-danger">Very Weak</span></td>
+                                                        <td>Instantly</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Password1</td>
+                                                        <td><span class="badge bg-warning text-dark">Weak</span></td>
+                                                        <td>Minutes to hours</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>P@ssw0rd!2023</td>
+                                                        <td><span class="badge bg-info">Moderate</span></td>
+                                                        <td>Days to weeks</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>j7K&9Lp$2xR!5tG</td>
+                                                        <td><span class="badge bg-success">Strong</span></td>
+                                                        <td>Centuries</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>correct-horse-battery-staple</td>
+                                                        <td><span class="badge bg-success">Strong</span></td>
+                                                        <td>Centuries</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <div class="alert alert-warning mt-3">
+                                                <p class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i> These estimates assume a modern computer performing billions of guesses per second. Actual times may vary based on attacker resources and password complexity.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Engineering Demo -->
+        <div class="collapse mb-5" id="social-demo">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-info">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0"><i class="fas fa-user-secret me-2"></i> Social Engineering Awareness</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-warning mb-4">
+                                <i class="fas fa-exclamation-triangle me-2"></i> This demonstration explains common social engineering tactics and how to protect yourself.
+                            </div>
+
+                            <h5 class="mb-3">What is Social Engineering?</h5>
+                            <p>Social engineering is the psychological manipulation of people into performing actions or divulging confidential information. It relies on human error rather than technical hacking techniques to gain access to systems, buildings, or data.</p>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="card mb-3">
+                                        <div class="card-header bg-danger text-white">
+                                            <h5 class="mb-0">Common Social Engineering Tactics</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="accordion" id="socialTacticsAccordion">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingPretexting">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePretexting" aria-expanded="true" aria-controls="collapsePretexting">
+                                                            <i class="fas fa-theater-masks me-2"></i> Pretexting
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapsePretexting" class="accordion-collapse collapse show" aria-labelledby="headingPretexting" data-bs-parent="#socialTacticsAccordion">
+                                                        <div class="accordion-body">
+                                                            <p><strong>What it is:</strong> Creating a fabricated scenario to engage a victim and gain their trust.</p>
+                                                            <p><strong>Example:</strong> An attacker calls pretending to be from IT support, claiming they need your password to fix an urgent system issue.</p>
+                                                            <p><strong>Defense:</strong> Verify the identity of anyone requesting sensitive information through official channels.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingBaiting">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBaiting" aria-expanded="false" aria-controls="collapseBaiting">
+                                                            <i class="fas fa-fish me-2"></i> Baiting
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseBaiting" class="accordion-collapse collapse" aria-labelledby="headingBaiting" data-bs-parent="#socialTacticsAccordion">
+                                                        <div class="accordion-body">
+                                                            <p><strong>What it is:</strong> Offering something enticing to entrap the victim.</p>
+                                                            <p><strong>Example:</strong> Leaving infected USB drives in a parking lot labeled "Confidential Salary Information" or "Executive Photos."</p>
+                                                            <p><strong>Defense:</strong> Be suspicious of unexpected "free" offers and never use unknown storage devices.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingQuidPro">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQuidPro" aria-expanded="false" aria-controls="collapseQuidPro">
+                                                            <i class="fas fa-handshake me-2"></i> Quid Pro Quo
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseQuidPro" class="accordion-collapse collapse" aria-labelledby="headingQuidPro" data-bs-parent="#socialTacticsAccordion">
+                                                        <div class="accordion-body">
+                                                            <p><strong>What it is:</strong> Offering a service or benefit in exchange for information or access.</p>
+                                                            <p><strong>Example:</strong> An attacker calls multiple employees claiming to be from IT support offering help with a non-existent problem.</p>
+                                                            <p><strong>Defense:</strong> Only accept technical support that you specifically requested through official channels.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="headingTailgating">
+                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTailgating" aria-expanded="false" aria-controls="collapseTailgating">
+                                                            <i class="fas fa-door-open me-2"></i> Tailgating
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseTailgating" class="accordion-collapse collapse" aria-labelledby="headingTailgating" data-bs-parent="#socialTacticsAccordion">
+                                                        <div class="accordion-body">
+                                                            <p><strong>What it is:</strong> Following someone into a restricted area or building without proper authentication.</p>
+                                                            <p><strong>Example:</strong> An attacker waits by a secure door with arms full of boxes, hoping someone will hold the door open for them.</p>
+                                                            <p><strong>Defense:</strong> Always ensure doors close behind you and require everyone to use their own credentials for access.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header bg-primary text-white">
+                                            <h5 class="mb-0">Psychological Triggers Used</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-clock text-warning me-3"></i>
+                                                    <div>
+                                                        <strong>Urgency</strong>
+                                                        <p class="mb-0">Creating time pressure to force quick decisions without proper consideration</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-user-tie text-warning me-3"></i>
+                                                    <div>
+                                                        <strong>Authority</strong>
+                                                        <p class="mb-0">Impersonating figures of authority to increase compliance</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-heart text-warning me-3"></i>
+                                                    <div>
+                                                        <strong>Scarcity</strong>
+                                                        <p class="mb-0">Suggesting limited availability to encourage immediate action</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-users text-warning me-3"></i>
+                                                    <div>
+                                                        <strong>Social Proof</strong>
+                                                        <p class="mb-0">Implying that others have already complied with the request</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-hand-holding-heart text-warning me-3"></i>
+                                                    <div>
+                                                        <strong>Familiarity/Liking</strong>
+                                                        <p class="mb-0">Building rapport to exploit natural tendency to trust friendly people</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-exclamation-circle text-warning me-3"></i>
+                                                    <div>
+                                                        <strong>Fear</strong>
+                                                        <p class="mb-0">Creating anxiety about negative consequences to prompt action</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-4">
+                                <div class="card-header bg-success text-white">
+                                    <h5 class="mb-0">Social Engineering Defense Strategies</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6 class="mb-3">For Individuals:</h6>
+                                            <ul class="list-group mb-4">
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Verify Identity</strong>
+                                                        <p class="mb-0">Independently confirm the identity of anyone requesting sensitive information</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Be Skeptical</strong>
+                                                        <p class="mb-0">Question unexpected contacts, especially those creating urgency or fear</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Limit Information Sharing</strong>
+                                                        <p class="mb-0">Be cautious about what you share on social media and public forums</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Follow Security Policies</strong>
+                                                        <p class="mb-0">Adhere to established procedures for handling sensitive information</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="mb-3">For Organizations:</h6>
+                                            <ul class="list-group mb-4">
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Regular Training</strong>
+                                                        <p class="mb-0">Conduct ongoing security awareness training for all employees</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Simulated Attacks</strong>
+                                                        <p class="mb-0">Run controlled social engineering tests to identify vulnerabilities</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Clear Procedures</strong>
+                                                        <p class="mb-0">Establish and communicate protocols for handling sensitive requests</p>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item d-flex align-items-center">
+                                                    <i class="fas fa-check-circle text-success me-3"></i>
+                                                    <div>
+                                                        <strong>Reporting System</strong>
+                                                        <p class="mb-0">Create easy ways for employees to report suspicious activities</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header bg-warning text-dark">
+                                    <h5 class="mb-0">Test Your Knowledge</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form id="socialEngineeringQuiz">
+                                        <div class="mb-4">
+                                            <p><strong>1. You receive a call from someone claiming to be from your company's IT department. They say they need your password to install important security updates. What should you do?</strong></p>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" name="question1" id="q1a" value="a">
+                                                <label class="form-check-label" for="q1a">
+                                                    Provide your password since it's for security updates
+                                                </label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" name="question1" id="q1b" value="b">
+                                                <label class="form-check-label" for="q1b">
+                                                    Ask for their employee ID and call them back using the company directory
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="question1" id="q1c" value="c">
+                                                <label class="form-check-label" for="q1c">
+                                                    Provide your username but not your password
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <p><strong>2. Which of the following is NOT a common social engineering tactic?</strong></p>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" name="question2" id="q2a" value="a">
+                                                <label class="form-check-label" for="q2a">
+                                                    Pretexting
+                                                </label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" name="question2" id="q2b" value="b">
+                                                <label class="form-check-label" for="q2b">
+                                                    Encryption
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="question2" id="q2c" value="c">
+                                                <label class="form-check-label" for="q2c">
+                                                    Tailgating
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <p><strong>3. You find a USB drive in the parking lot labeled "Confidential: Employee Salaries." What should you do?</strong></p>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" name="question3" id="q3a" value="a">
+                                                <label class="form-check-label" for="q3a">
+                                                    Plug it into your computer to see if it contains useful information
+                                                </label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" name="question3" id="q3b" value="b">
+                                                <label class="form-check-label" for="q3b">
+                                                    Turn it in to security or IT without plugging it in
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="question3" id="q3c" value="c">
+                                                <label class="form-check-label" for="q3c">
+                                                    Plug it into a public computer to check its contents
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <p><strong>4. Which psychological trigger involves creating a sense of limited time or availability to force quick decisions?</strong></p>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" name="question4" id="q4a" value="a">
+                                                <label class="form-check-label" for="q4a">
+                                                    Authority
+                                                </label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="radio" name="question4" id="q4b" value="b">
+                                                <label class="form-check-label" for="q4b">
+                                                    Urgency
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="question4" id="q4c" value="c">
+                                                <label class="form-check-label" for="q4c">
+                                                    Social proof
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">Submit Answers</button>
+                                    </form>
+
+                                    <div id="quizResults" class="mt-4 d-none">
+                                        <div class="alert alert-success">
+                                            <h5 class="alert-heading">Your Score: <span id="quizScore">0</span>/4</h5>
+                                            <div id="quizFeedback"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Assessment Section -->
+        <div class="row mt-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h4 class="card-title text-center mb-4">Security Assessment Tool</h4>
+                        <p class="text-center mb-4">Take our comprehensive security assessment to identify potential vulnerabilities in your security practices.</p>
+
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#securityAssessmentModal">Start Assessment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Security Assessment Modal -->
+    <div class="modal fade" id="securityAssessmentModal" tabindex="-1" aria-labelledby="securityAssessmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="securityAssessmentModalLabel">Security Assessment</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info mb-4">
+                        <i class="fas fa-info-circle me-2"></i> This assessment helps identify potential security vulnerabilities in your practices. Your responses are not stored or transmitted.
+                    </div>
+
+                    <form id="securityAssessmentForm">
+                        <div class="mb-4">
+                            <h5>Password Security</h5>
+                            <div class="mb-3">
+                                <label class="form-label">1. Do you use unique passwords for different accounts?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="uniquePasswords" id="uniquePasswordsYes" value="yes">
+                                    <label class="form-check-label" for="uniquePasswordsYes">Yes, always</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="uniquePasswords" id="uniquePasswordsSometimes" value="sometimes">
+                                    <label class="form-check-label" for="uniquePasswordsSometimes">Sometimes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="uniquePasswords" id="uniquePasswordsNo" value="no">
+                                    <label class="form-check-label" for="uniquePasswordsNo">No, I reuse passwords</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">2. Do you use a password manager?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="passwordManager" id="passwordManagerYes" value="yes">
+                                    <label class="form-check-label" for="passwordManagerYes">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="passwordManager" id="passwordManagerNo" value="no">
+                                    <label class="form-check-label" for="passwordManagerNo">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5>Authentication</h5>
+                            <div class="mb-3">
+                                <label class="form-label">3. Do you use two-factor authentication when available?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="twoFactor" id="twoFactorYes" value="yes">
+                                    <label class="form-check-label" for="twoFactorYes">Yes, whenever possible</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="twoFactor" id="twoFactorSometimes" value="sometimes">
+                                    <label class="form-check-label" for="twoFactorSometimes">Only for some accounts</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="twoFactor" id="twoFactorNo" value="no">
+                                    <label class="form-check-label" for="twoFactorNo">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5>Device Security</h5>
+                            <div class="mb-3">
+                                <label class="form-label">4. Do you keep your devices and software updated?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="updates" id="updatesYes" value="yes">
+                                    <label class="form-check-label" for="updatesYes">Yes, automatically or promptly</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="updates" id="updatesSometimes" value="sometimes">
+                                    <label class="form-check-label" for="updatesSometimes">Sometimes, but often delay updates</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="updates" id="updatesNo" value="no">
+                                    <label class="form-check-label" for="updatesNo">Rarely or never</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">5. Do you use antivirus/anti-malware software?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="antivirus" id="antivirusYes" value="yes">
+                                    <label class="form-check-label" for="antivirusYes">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="antivirus" id="antivirusNo" value="no">
+                                    <label class="form-check-label" for="antivirusNo">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5>Online Behavior</h5>
+                            <div class="mb-3">
+                                <label class="form-label">6. Do you check for HTTPS before entering sensitive information on websites?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="https" id="httpsYes" value="yes">
+                                    <label class="form-check-label" for="httpsYes">Yes, always</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="https" id="httpsSometimes" value="sometimes">
+                                    <label class="form-check-label" for="httpsSometimes">Sometimes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="https" id="httpsNo" value="no">
+                                    <label class="form-check-label" for="httpsNo">No, I don't check</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">7. Do you click on links in emails from unknown senders?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="emailLinks" id="emailLinksYes" value="yes">
+                                    <label class="form-check-label" for="emailLinksYes">Yes, frequently</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="emailLinks" id="emailLinksSometimes" value="sometimes">
+                                    <label class="form-check-label" for="emailLinksSometimes">Sometimes, if it looks interesting</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="emailLinks" id="emailLinksNo" value="no">
+                                    <label class="form-check-label" for="emailLinksNo">No, never</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5>Data Protection</h5>
+                            <div class="mb-3">
+                                <label class="form-label">8. Do you back up your important data?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="backups" id="backupsYes" value="yes">
+                                    <label class="form-check-label" for="backupsYes">Yes, regularly</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="backups" id="backupsSometimes" value="sometimes">
+                                    <label class="form-check-label" for="backupsSometimes">Occasionally</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="backups" id="backupsNo" value="no">
+                                    <label class="form-check-label" for="backupsNo">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit Assessment</button>
+                    </form>
+
+                    <div id="assessmentResults" class="mt-4 d-none">
+                        <h5>Your Security Score: <span id="securityScore">0</span>/100</h5>
+                        <div class="progress mb-3">
+                            <div id="securityScoreBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+                        <div id="securityRecommendations" class="mt-3"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 CyberShield Academy. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white me-3">Privacy Policy</a>
+                    <a href="#" class="text-white me-3">Terms of Service</a>
+                    <a href="#" class="text-white">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Phishing awareness demo
+            const phishingAnswers = document.querySelectorAll('.phishing-answer');
+            const phishingResults = document.getElementById('phishing-results');
+            const phishingScore = document.getElementById('phishing-score');
+            const phishingFeedback = document.getElementById('phishing-feedback');
+
+            let correctAnswers = 0;
+            let answeredQuestions = 0;
+
+            if (phishingAnswers.length > 0) {
+                phishingAnswers.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const emailId = this.getAttribute('data-email');
+                        const isCorrect = this.getAttribute('data-correct') === 'true';
+                        const buttons = document.querySelectorAll(`[data-email="${emailId}"]`);
+
+                        // Disable all buttons for this email
+                        buttons.forEach(btn => {
+                            btn.disabled = true;
+                            btn.classList.remove('btn-danger', 'btn-success');
+                            btn.classList.add('btn-secondary');
+                        });
+
+                        // Highlight the selected button
+                        if (isCorrect) {
+                            this.classList.remove('btn-secondary');
+                            this.classList.add('btn-success');
+                            correctAnswers++;
+                        } else {
+                            this.classList.remove('btn-secondary');
+                            this.classList.add('btn-danger');
+                        }
+
+                        answeredQuestions++;
+
+                        // If all questions answered, show results
+                        if (answeredQuestions === 4) {
+                            phishingScore.textContent = correctAnswers;
+
+                            let feedbackHTML = '<p>Here\'s what you should look for:</p><ul>';
+
+                            feedbackHTML += '<li><strong>Email 1:</strong> This is a phishing attempt. Red flags include the misspelled domain (paypa1.com), urgent language, and suspicious link.</li>';
+                            feedbackHTML += '<li><strong>Email 2:</strong> This appears to be legitimate. It has a proper domain, specific order details, and doesn\'t ask for any action.</li>';
+                            feedbackHTML += '<li><strong>Email 3:</strong> This is a phishing attempt. Red flags include the suspicious domain (microsoft-verify.net) and urgent request for payment information.</li>';
+                            feedbackHTML += '<li><strong>Email 4:</strong> This appears to be legitimate. It has a proper domain and specific information about the shared document.</li>';
+
+                            feedbackHTML += '</ul>';
+
+                            phishingFeedback.innerHTML = feedbackHTML;
+                            phishingResults.classList.remove('d-none');
+                        }
+                    });
+                });
+            }
+
+            // Password strength tester
+            const passwordInput = document.getElementById('passwordInput');
+            const passwordStrengthBar = document.getElementById('passwordStrengthBar');
+            const passwordStrengthText = document.getElementById('passwordStrengthText');
+            const passwordFeedback = document.getElementById('passwordFeedback');
+            const togglePasswordVisibility = document.getElementById('togglePasswordVisibility');
+
+            if (passwordInput && passwordStrengthBar && passwordStrengthText) {
+                passwordInput.addEventListener('input', function() {
+                    const password = this.value;
+                    let strength = 0;
+                    let feedback = '';
+
+                    // Calculate password strength
+                    if (password.length >= 12) {
+                        strength += 25;
+                    } else if (password.length >= 8) {
+                        strength += 10;
+                    }
+
+                    if (password.match(/[A-Z]/)) {
+                        strength += 15;
+                    }
+
+                    if (password.match(/[a-z]/)) {
+                        strength += 10;
+                    }
+
+                    if (password.match(/[0-9]/)) {
+                        strength += 15;
+                    }
+
+                    if (password.match(/[^A-Za-z0-9]/)) {
+                        strength += 20;
+                    }
+
+                    // Check for common patterns
+                    if (password.match(/^123/) || password.match(/password/i) || password.match(/qwerty/i)) {
+                        strength -= 25;
+                    }
+
+                    // Ensure strength is between 0-100
+                    strength = Math.max(0, Math.min(100, strength));
+
+                    // Update UI
+                    passwordStrengthBar.style.width = strength + '%';
+
+                    if (strength <= 25) {
+                        passwordStrengthBar.className = 'progress-bar bg-danger';
+                        feedback = 'Very Weak';
+                    } else if (strength <= 50) {
+                        passwordStrengthBar.className = 'progress-bar bg-warning';
+                        feedback = 'Weak';
+                    } else if (strength <= 75) {
+                        passwordStrengthBar.className = 'progress-bar bg-info';
+                        feedback = 'Good';
+                    } else {
+                        passwordStrengthBar.className = 'progress-bar bg-success';
+                        feedback = 'Strong';
+                    }
+
+                    passwordStrengthText.textContent = 'Password strength: ' + feedback;
+                });
+
+                // Toggle password visibility
+                if (togglePasswordVisibility) {
+                    togglePasswordVisibility.addEventListener('click', function() {
+                        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                        passwordInput.setAttribute('type', type);
+                        this.querySelector('i').classList.toggle('fa-eye');
+                        this.querySelector('i').classList.toggle('fa-eye-slash');
+                    });
+                }
+
+                // Password strength form submission
+                const passwordStrengthForm = document.getElementById('passwordStrengthForm');
+                if (passwordStrengthForm) {
+                    passwordStrengthForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+
+                        const password = passwordInput.value;
+                        let feedbackHTML = '<div class="alert ';
+
+                        // Calculate time to crack
+                        let timeToCrack = '';
+                        const length = password.length;
+                        const hasUpper = /[A-Z]/.test(password);
+                        const hasLower = /[a-z]/.test(password);
+                        const hasNumber = /[0-9]/.test(password);
+                        const hasSpecial = /[^A-Za-z0-9]/.test(password);
+
+                        let possibleChars = 0;
+                        if (hasLower) possibleChars += 26;
+                        if (hasUpper) possibleChars += 26;
+                        if (hasNumber) possibleChars += 10;
+                        if (hasSpecial) possibleChars += 33;
+
+                        const combinations = Math.pow(possibleChars, length);
+                        const guessesPerSecond = 1000000000; // 1 billion guesses per second
+
+                        const seconds = combinations / guessesPerSecond;
+
+                        if (seconds < 60) {
+                            timeToCrack = 'less than a minute';
+                            feedbackHTML += 'alert-danger';
+                        } else if (seconds < 3600) {
+                            timeToCrack = Math.round(seconds / 60) + ' minutes';
+                            feedbackHTML += 'alert-danger';
+                        } else if (seconds < 86400) {
+                            timeToCrack = Math.round(seconds / 3600) + ' hours';
+                            feedbackHTML += 'alert-warning';
+                        } else if (seconds < 31536000) {
+                            timeToCrack = Math.round(seconds / 86400) + ' days';
+                            feedbackHTML += 'alert-warning';
+                        } else if (seconds < 315360000) {
+                            timeToCrack = Math.round(seconds / 31536000) + ' years';
+                            feedbackHTML += 'alert-info';
+                        } else {
+                            timeToCrack = 'centuries';
+                            feedbackHTML += 'alert-success';
+                        }
+
+                        feedbackHTML += '">';
+                        feedbackHTML += '<h5 class="alert-heading">Password Analysis</h5>';
+                        feedbackHTML += '<p><strong>Estimated time to crack:</strong> ' + timeToCrack + '</p>';
+
+                        // Add specific feedback
+                        feedbackHTML += '<p><strong>Strengths:</strong></p><ul>';
+                        if (length >= 12) {
+                            feedbackHTML += '<li>Good length (12+ characters)</li>';
+                        }
+                        if (hasUpper && hasLower && hasNumber && hasSpecial) {
+                            feedbackHTML += '<li>Excellent character variety</li>';
+                        } else if ((hasUpper || hasLower) && (hasNumber || hasSpecial)) {
+                            feedbackHTML += '<li>Decent character variety</li>';
+                        }
+                        feedbackHTML += '</ul>';
+
+                        feedbackHTML += '<p><strong>Weaknesses:</strong></p><ul>';
+                        if (length < 12) {
+                            feedbackHTML += '<li>Too short (should be at least 12 characters)</li>';
+                        }
+                        if (!hasUpper) {
+                            feedbackHTML += '<li>No uppercase letters</li>';
+                        }
+                        if (!hasLower) {
+                            feedbackHTML += '<li>No lowercase letters</li>';
+                        }
+                        if (!hasNumber) {
+                            feedbackHTML += '<li>No numbers</li>';
+                        }
+                        if (!hasSpecial) {
+                            feedbackHTML += '<li>No special characters</li>';
+                        }
+                        if (password.match(/^123/) || password.match(/password/i) || password.match(/qwerty/i)) {
+                            feedbackHTML += '<li>Contains common patterns</li>';
+                        }
+                        feedbackHTML += '</ul>';
+
+                        feedbackHTML += '</div>';
+
+                        passwordFeedback.innerHTML = feedbackHTML;
+                    });
+                }
+            }
+
+            // Social Engineering Quiz
+            const socialEngineeringQuiz = document.getElementById('socialEngineeringQuiz');
+            const quizResults = document.getElementById('quizResults');
+            const quizScore = document.getElementById('quizScore');
+            const quizFeedback = document.getElementById('quizFeedback');
+
+            if (socialEngineeringQuiz) {
+                socialEngineeringQuiz.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const answers = {
+                        question1: 'b', // Ask for ID and call back
+                        question2: 'b', // Encryption
+                        question3: 'b', // Turn it in without plugging it in
+                        question4: 'b'  // Urgency
+                    };
+
+                    let score = 0;
+                    let feedbackHTML = '<ul>';
+
+                    // Check answers
+                    for (const question in answers) {
+                        const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+
+                        if (selectedAnswer && selectedAnswer.value === answers[question]) {
+                            score++;
+                            feedbackHTML += `<li>Question ${question.slice(-1)}: Correct!</li>`;
+                        } else {
+                            feedbackHTML += `<li>Question ${question.slice(-1)}: Incorrect</li>`;
+                        }
+                    }
+
+                    feedbackHTML += '</ul>';
+
+                    // Add explanations
+                    feedbackHTML += '<p><strong>Explanations:</strong></p>';
+                    feedbackHTML += '<p><strong>1.</strong> You should never provide your password to anyone, even IT staff. Always verify the identity of the caller through official channels.</p>';
+                    feedbackHTML += '<p><strong>2.</strong> Encryption is a security measure, not a social engineering tactic. Pretexting, tailgating, and other options are common social engineering methods.</p>';
+                    feedbackHTML += '<p><strong>3.</strong> Unknown USB drives could contain malware. The safest approach is to turn it in to security or IT without plugging it in.</p>';
+                    feedbackHTML += '<p><strong>4.</strong> Urgency is the psychological trigger that creates time pressure to force quick decisions without proper consideration.</p>';
+
+                    quizScore.textContent = score;
+                    quizFeedback.innerHTML = feedbackHTML;
+                    quizResults.classList.remove('d-none');
+                });
+            }
+
+            // Security Assessment
+            const securityAssessmentForm = document.getElementById('securityAssessmentForm');
+            const assessmentResults = document.getElementById('assessmentResults');
+            const securityScore = document.getElementById('securityScore');
+            const securityScoreBar = document.getElementById('securityScoreBar');
+            const securityRecommendations = document.getElementById('securityRecommendations');
+
+            if (securityAssessmentForm) {
+                securityAssessmentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Calculate score
+                    let score = 0;
+                    const formData = new FormData(securityAssessmentForm);
+
+                    // Unique passwords
+                    if (formData.get('uniquePasswords') === 'yes') score += 15;
+                    else if (formData.get('uniquePasswords') === 'sometimes') score += 7;
+
+                    // Password manager
+                    if (formData.get('passwordManager') === 'yes') score += 10;
+
+                    // Two-factor authentication
+                    if (formData.get('twoFactor') === 'yes') score += 15;
+                    else if (formData.get('twoFactor') === 'sometimes') score += 7;
+
+                    // Updates
+                    if (formData.get('updates') === 'yes') score += 10;
+                    else if (formData.get('updates') === 'sometimes') score += 5;
+
+                    // Antivirus
+                    if (formData.get('antivirus') === 'yes') score += 10;
+
+                    // HTTPS checking
+                    if (formData.get('https') === 'yes') score += 10;
+                    else if (formData.get('https') === 'sometimes') score += 5;
+
+                    // Email links
+                    if (formData.get('emailLinks') === 'no') score += 15;
+                    else if (formData.get('emailLinks') === 'sometimes') score += 5;
+
+                    // Backups
+                    if (formData.get('backups') === 'yes') score += 15;
+                    else if (formData.get('backups') === 'sometimes') score += 7;
+
+                    // Update UI
+                    securityScore.textContent = score;
+                    securityScoreBar.style.width = score + '%';
+
+                    if (score <= 40) {
+                        securityScoreBar.className = 'progress-bar bg-danger';
+                    } else if (score <= 70) {
+                        securityScoreBar.className = 'progress-bar bg-warning';
+                    } else {
+                        securityScoreBar.className = 'progress-bar bg-success';
+                    }
+
+                    // Generate recommendations
+                    let recommendationsHTML = '<div class="alert ';
+
+                    if (score <= 40) {
+                        recommendationsHTML += 'alert-danger';
+                    } else if (score <= 70) {
+                        recommendationsHTML += 'alert-warning';
+                    } else {
+                        recommendationsHTML += 'alert-success';
+                    }
+
+                    recommendationsHTML += '"><h6 class="alert-heading">Security Recommendations:</h6><ul>';
+
+                    // Add specific recommendations based on answers
+                    if (formData.get('uniquePasswords') !== 'yes') {
+                        recommendationsHTML += '<li>Use unique passwords for all your accounts</li>';
+                    }
+
+                    if (formData.get('passwordManager') !== 'yes') {
+                        recommendationsHTML += '<li>Consider using a password manager to generate and store strong passwords</li>';
+                    }
+
+                    if (formData.get('twoFactor') !== 'yes') {
+                        recommendationsHTML += '<li>Enable two-factor authentication on all accounts that support it</li>';
+                    }
+
+                    if (formData.get('updates') !== 'yes') {
+                        recommendationsHTML += '<li>Keep all devices and software updated with the latest security patches</li>';
+                    }
+
+                    if (formData.get('antivirus') !== 'yes') {
+                        recommendationsHTML += '<li>Install and maintain antivirus/anti-malware software</li>';
+                    }
+
+                    if (formData.get('https') !== 'yes') {
+                        recommendationsHTML += '<li>Always check for HTTPS before entering sensitive information on websites</li>';
+                    }
+
+                    if (formData.get('emailLinks') !== 'no') {
+                        recommendationsHTML += '<li>Never click on links in emails from unknown senders</li>';
+                    }
+
+                    if (formData.get('backups') !== 'yes') {
+                        recommendationsHTML += '<li>Regularly back up your important data</li>';
+                    }
+
+                    recommendationsHTML += '</ul></div>';
+
+                    securityRecommendations.innerHTML = recommendationsHTML;
+                    assessmentResults.classList.remove('d-none');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

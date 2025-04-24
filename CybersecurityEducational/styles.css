@@ -1,0 +1,571 @@
+﻿/* Styles for CyberShield Academy website */
+
+/* Global styles */
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #6c757d;
+    --success-color: #198754;
+    --info-color: #0dcaf0;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header and navigation */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+/* Hero section */
+.hero-section {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    color: white;
+    padding: 5rem 0;
+    margin-bottom: 3rem;
+}
+
+    .hero-section h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.25rem;
+        opacity: 0.9;
+    }
+
+/* Feature cards */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+    height: 100%;
+}
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+}
+
+/* Pricing cards */
+.pricing-card {
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+    .pricing-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing-card.featured {
+        border-color: var(--primary-color);
+        position: relative;
+        z-index: 1;
+        transform: scale(1.05);
+    }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+.pricing-header {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.pricing-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+    .pricing-price .currency {
+        font-size: 1.5rem;
+        position: relative;
+        top: -0.5rem;
+    }
+
+    .pricing-price .period {
+        font-size: 1rem;
+        color: var(--secondary-color);
+    }
+
+.pricing-features {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+    .pricing-features ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .pricing-features li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+.pricing-footer {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* Testimonials */
+.testimonial-card {
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background-color: white;
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.testimonial-quote {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.testimonial-author {
+    font-weight: 700;
+}
+
+/* Forms */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.password-strength-meter {
+    height: 5px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Security demonstrations */
+.demo-container {
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background-color: #f8f9fa;
+}
+
+.demo-output {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.email-example {
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+}
+
+/* Secure vs Insecure comparison */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 1rem;
+        border: 1px solid #e9ecef;
+    }
+
+    .comparison-table th {
+        background-color: #f8f9fa;
+    }
+
+.secure-practice {
+    color: var(--success-color);
+}
+
+.insecure-practice {
+    color: var(--danger-color);
+}
+
+/* Footer */
+footer {
+    margin-top: 5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .pricing-card.featured {
+        transform: none;
+    }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-5px);
+        }
+}
+
+/* Animation for special offer */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.special-offer-badge {
+    animation: pulse 2s infinite;
+    display: inline-block;
+}
+
+/* Interactive elements */
+.interactive-element {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .interactive-element:hover {
+        transform: scale(1.05);
+    }
+
+/* Security lab styles */
+.security-lab-section {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+    margin: 3rem 0;
+}
+
+.lab-card {
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .lab-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+.lab-card-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Quiz styles */
+.quiz-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.quiz-question {
+    margin-bottom: 2rem;
+}
+
+.quiz-options {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.quiz-option {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e9ecef;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .quiz-option:hover {
+        background-color: #f8f9fa;
+    }
+
+    .quiz-option.selected {
+        background-color: #e7f5ff;
+        border-color: var(--primary-color);
+    }
+
+/* Payment form styles */
+.payment-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.payment-card {
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-right: 0.5rem;
+    color: #adb5bd;
+}
+
+    .card-icon.active {
+        color: var(--primary-color);
+    }
+
+/* Security comparison styles */
+.security-comparison {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.security-comparison-item {
+    flex: 1;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.security-comparison-insecure {
+    background-color: #f8d7da;
+    margin-right: 1rem;
+}
+
+.security-comparison-secure {
+    background-color: #d1e7dd;
+}
+
+.security-comparison-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin: 0 1rem;
+}
+
+/* Account security meter */
+.account-security-meter {
+    height: 10px;
+    border-radius: 5px;
+    margin: 1rem 0;
+    background-color: #e9ecef;
+    overflow: hidden;
+}
+
+.account-security-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #dc3545 0%, #ffc107 50%, #198754 100%);
+    transition: width 0.3s ease;
+}
+
+/* Countdown timer */
+.countdown-timer {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--danger-color);
+}
+
+/* Certificate styles */
+.certificate-container {
+    border: 10px solid #0a58ca;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.certificate-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #0a58ca;
+}
+
+.certificate-seal {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 100px;
+    height: 100px;
+    background-color: #0a58ca;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    transform: rotate(-15deg);
+}
+
+/* Progress tracker */
+.progress-tracker {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.progress-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+    .progress-step::after {
+        content: '';
+        position: absolute;
+        top: 25px;
+        left: 50%;
+        width: 100%;
+        height: 2px;
+        background-color: #e9ecef;
+        z-index: -1;
+    }
+
+    .progress-step:last-child::after {
+        display: none;
+    }
+
+.progress-step-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    z-index: 1;
+    position: relative;
+}
+
+.progress-step.active .progress-step-icon {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.progress-step.completed .progress-step-icon {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.progress-step-label {
+    font-weight: 600;
+}
+
+/* Notification styles */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--danger-color);
+    color: white;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Custom checkboxes */
+.custom-checkbox {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    user-select: none;
+}
+
+    .custom-checkbox input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+}
+
+.custom-checkbox:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.custom-checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 7px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
