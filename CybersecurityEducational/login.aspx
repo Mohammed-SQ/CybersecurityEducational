@@ -3,6 +3,11 @@
 <script runat="server">
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Add CORS headers
+        Response.AppendHeader("Access-Control-Allow-Origin", "*");
+        Response.AppendHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+        Response.AppendHeader("Access-Control-Allow-Headers", "Content-Type");
+
         if (Request.HttpMethod != "POST")
         {
             Response.StatusCode = 405;
