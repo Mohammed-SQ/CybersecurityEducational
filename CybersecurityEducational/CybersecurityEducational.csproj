@@ -68,19 +68,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="account.aspx" />
-    <Content Include="App_Data\Cyber.mdf" />
-    <Content Include="App_Data\Cyber_log.ldf">
-      <DependentUpon>Cyber.mdf</DependentUpon>
-    </Content>
+    <Content Include="account.html" />
     <Content Include="course.aspx" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\course.jpeg" />
     <Content Include="images\logo.jpg" />
     <Content Include="images\profile.jpg" />
     <Content Include="index.aspx" />
+    <Content Include="index.html" />
+    <Content Include="login.aspx" />
     <Content Include="payment_demo.html" />
+    <Content Include="register.aspx" />
+    <Content Include="savepayment.aspx" />
     <Content Include="security_lab.html" />
     <Content Include="styles.css" />
+    <Content Include="verify2fa.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -105,7 +107,38 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="savepayment.aspx.cs">
+      <DependentUpon>savepayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="savepayment.aspx.designer.cs">
+      <DependentUpon>savepayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="verify2fa.aspx.cs">
+      <DependentUpon>verify2fa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="verify2fa.aspx.designer.cs">
+      <DependentUpon>verify2fa.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
