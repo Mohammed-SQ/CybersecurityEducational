@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="CybersecurityEducational.Index" %>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -34,8 +34,13 @@
         }
 
         @keyframes binary-scroll {
-            0% { background-position: 0 0; }
-            100% { background-position: 0 100px; }
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 0 100px;
+            }
         }
 
         /* Navbar Styling */
@@ -55,10 +60,10 @@
             transition: all 0.3s ease;
         }
 
-        .navbar-brand:hover {
-            color: #ff00ff !important;
-            text-shadow: 0 0 20px #ff00ff;
-        }
+            .navbar-brand:hover {
+                color: #ff00ff !important;
+                text-shadow: 0 0 20px #ff00ff;
+            }
 
         .nav-link {
             font-family: 'Roboto', sans-serif;
@@ -68,11 +73,11 @@
             transition: all 0.3s ease;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: #00d4ff !important;
-            text-shadow: 0 0 10px #00d4ff;
-            transform: scale(1.05);
-        }
+            .nav-link:hover, .nav-link.active {
+                color: #00d4ff !important;
+                text-shadow: 0 0 10px #00d4ff;
+                transform: scale(1.05);
+            }
 
         .logout-btn {
             background: #ff0000;
@@ -82,11 +87,11 @@
             transition: all 0.3s ease;
         }
 
-        .logout-btn:hover {
-            background: #cc0000;
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-        }
+            .logout-btn:hover {
+                background: #cc0000;
+                transform: scale(1.1);
+                box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            }
 
         /* Hero Section */
         .hero-section {
@@ -100,17 +105,25 @@
             position: relative;
         }
 
-        .hero-section h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 4.5rem;
-            font-weight: 900;
-            animation: glitch 2s linear infinite;
-        }
+            .hero-section h1 {
+                font-family: 'Orbitron', sans-serif;
+                font-size: 4.5rem;
+                font-weight: 900;
+                animation: glitch 2s linear infinite;
+            }
 
         @keyframes glitch {
-            2%, 64% { transform: translate(2px, 0) skew(0deg); }
-            4%, 60% { transform: translate(-2px, 0) skew(0deg); }
-            62% { transform: translate(0, 0) skew(5deg); }
+            2%, 64% {
+                transform: translate(2px, 0) skew(0deg);
+            }
+
+            4%, 60% {
+                transform: translate(-2px, 0) skew(0deg);
+            }
+
+            62% {
+                transform: translate(0, 0) skew(5deg);
+            }
         }
 
         .hero-section p.lead {
@@ -126,10 +139,10 @@
             font-weight: 600;
         }
 
-        .btn-animated:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
-        }
+            .btn-animated:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+            }
 
         /* Comments Ticker */
         .comments-ticker {
@@ -152,8 +165,13 @@
         }
 
         @keyframes ticker {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
         }
 
         /* Feature Cards */
@@ -165,10 +183,10 @@
             transition: all 0.3s ease;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
-        }
+            .feature-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+            }
 
         .feature-icon {
             width: 70px;
@@ -181,9 +199,17 @@
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 212, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(0, 212, 255, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 212, 255, 0);
+            }
         }
 
         /* Courses Section */
@@ -198,37 +224,37 @@
             height: 350px;
         }
 
-        .lab-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
-        }
+            .lab-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+            }
 
-        .lab-card .card-img-top {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-        }
+            .lab-card .card-img-top {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+            }
 
-        .lab-card .card-body {
-            padding: 1.5rem;
-            height: calc(100% - 150px);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+            .lab-card .card-body {
+                padding: 1.5rem;
+                height: calc(100% - 150px);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
 
-        .lab-card h5 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
+            .lab-card h5 {
+                font-family: 'Orbitron', sans-serif;
+                font-size: 1.4rem;
+                margin-bottom: 1rem;
+            }
 
-        .lab-card p {
-            font-size: 1rem;
-            flex-grow: 1;
-        }
+            .lab-card p {
+                font-size: 1rem;
+                flex-grow: 1;
+            }
 
         .course-overlay {
             position: absolute;
@@ -258,10 +284,10 @@
             transition: all 0.3s ease;
         }
 
-        .course-overlay .btn-explore:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
-        }
+            .course-overlay .btn-explore:hover {
+                transform: scale(1.1);
+                box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
+            }
 
         /* Course Modal Styling */
         .modal-content {
@@ -282,83 +308,78 @@
             text-shadow: 0 0 10px #00d4ff;
         }
 
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  padding: 20px; /* Bring back outer padding */
-  margin: 0;
-}
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            padding: 20px;
+            margin: 0;
+        }
 
-.course-content {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0;
-  padding: 0;
-  margin: 0;
-  align-items: flex-start;
-}
+        .course-content {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 0;
+            padding: 0;
+            margin: 0;
+            align-items: flex-start;
+        }
 
-.course-info {
-  flex: 1;
-  min-width: 0;
-  padding: 0;
-  margin: 0;
-}
+        .course-info {
+            flex: 1;
+            min-width: 0;
+            padding: 0;
+            margin: 0;
+        }
 
-.course-image-container {
-  flex: 1;
-  min-width: 0;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+        .course-image-container {
+            flex: 1;
+            min-width: 0;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.course-image {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
-  margin: 0;
-  padding: 0;
-}
-
-
-
-
-
+        .course-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+            margin: 0;
+            padding: 0;
+        }
 
         .modal-body .course-details {
             margin-top: 1rem;
         }
 
-        .modal-body .course-details p {
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
+            .modal-body .course-details p {
+                margin-bottom: 1rem;
+                font-weight: bold;
+            }
 
         .modal-body .certification-available, .video-available, .estimated-time {
             display: flex;
             align-items: center;
         }
 
-        .modal-body .certification-available .icon, 
-        .modal-body .video-available .icon, 
-        .modal-body .estimated-time .icon {
-            margin-right: 0.5rem;
-            font-size: 1.2rem;
-        }
+            .modal-body .certification-available .icon,
+            .modal-body .video-available .icon,
+            .modal-body .estimated-time .icon {
+                margin-right: 0.5rem;
+                font-size: 1.2rem;
+            }
 
-        .modal-body .certification-available.available, .video-available.available, .estimated-time {
-            color: #00ff00;
-        }
+            .modal-body .certification-available.available, .video-available.available, .estimated-time {
+                color: #00ff00;
+            }
 
-        .modal-body .certification-available.not-available, .video-available.not-available {
-            color: #ff0000;
-        }
+            .modal-body .certification-available.not-available, .video-available.not-available {
+                color: #ff0000;
+            }
 
         .modal-body ul {
             list-style: none;
@@ -366,18 +387,18 @@
             margin-top: 1rem;
         }
 
-        .modal-body ul li {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
+            .modal-body ul li {
+                margin-bottom: 1rem;
+                font-size: 1.1rem;
+            }
 
-        .modal-body ul li::before {
-            content: "• ";
-            color: #00d4ff;
-            font-weight: bold;
-        }
+                .modal-body ul li::before {
+                    content: "• ";
+                    color: #00d4ff;
+                    font-weight: bold;
+                }
 
-        .modal-body  {
+        .modal-body {
             border-top: 1px solid rgba(0, 212, 255, 0.3);
             margin: 1rem 0;
         }
@@ -388,27 +409,27 @@
             align-items: center;
         }
 
-        .modal-footer .fun-fact {
-            font-size: 0.9rem;
-            color: #00d4ff;
-            text-shadow: 0 0 5px #00d4ff;
-        }
+            .modal-footer .fun-fact {
+                font-size: 0.9rem;
+                color: #00d4ff;
+                text-shadow: 0 0 5px #00d4ff;
+            }
 
-        .modal-footer .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid #00d4ff;
-            color: #e0e0e0;
-        }
+            .modal-footer .btn-secondary {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid #00d4ff;
+                color: #e0e0e0;
+            }
 
-        .modal-footer .btn-primary {
-            background: linear-gradient(45deg, #00d4ff, #ff00ff);
-            border: none;
-            text-shadow: 0 0 5px #00d4ff;
-        }
+            .modal-footer .btn-primary {
+                background: linear-gradient(45deg, #00d4ff, #ff00ff);
+                border: none;
+                text-shadow: 0 0 5px #00d4ff;
+            }
 
-        .modal-footer .btn-primary:hover {
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
-        }
+                .modal-footer .btn-primary:hover {
+                    box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
+                }
 
         /* Pricing Section */
         #pricing {
@@ -425,15 +446,15 @@
             overflow: hidden;
         }
 
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
-        }
+            .pricing-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
+            }
 
-        .pricing-card.popular {
-            border: 3px solid #ff00ff;
-            box-shadow: 0 0 30px rgba(255, 0, 255, 0.7);
-        }
+            .pricing-card.popular {
+                border: 3px solid #ff00ff;
+                box-shadow: 0 0 30px rgba(255, 0, 255, 0.7);
+            }
 
         .pricing-header {
             padding: 2rem;
@@ -456,8 +477,13 @@
         }
 
         @keyframes glow {
-            from { box-shadow: 0 0 5px #ffc107; }
-            to { box-shadow: 0 0 15px #ffc107; }
+            from {
+                box-shadow: 0 0 5px #ffc107;
+            }
+
+            to {
+                box-shadow: 0 0 15px #ffc107;
+            }
         }
 
         .popular-badge {
@@ -488,37 +514,37 @@
             margin-bottom: 1rem;
         }
 
-        .pricing-price .currency {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-right: 0.5rem;
-        }
+            .pricing-price .currency {
+                font-size: 2.5rem;
+                color: #fff;
+                margin-right: 0.5rem;
+            }
 
-        .pricing-price .amount {
-            font-size: 3rem;
-            color: #fff;
-            font-weight: bold;
-        }
+            .pricing-price .amount {
+                font-size: 3rem;
+                color: #fff;
+                font-weight: bold;
+            }
 
-        .pricing-price .real-price-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-left: 1rem;
-        }
+            .pricing-price .real-price-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-left: 1rem;
+            }
 
-        .pricing-price .real-price {
-            font-size: 1.3rem;
-            color: #ff5555;
-            text-decoration: line-through;
-            text-shadow: 0 0 3px rgba(255, 85, 85, 0.5);
-        }
+            .pricing-price .real-price {
+                font-size: 1.3rem;
+                color: #ff5555;
+                text-decoration: line-through;
+                text-shadow: 0 0 3px rgba(255, 85, 85, 0.5);
+            }
 
-        .pricing-price .period {
-            font-size: 1rem;
-            color: #e0e0e0;
-            text-shadow: 0 0 3px rgba(224, 224, 224, 0.5);
-        }
+            .pricing-price .period {
+                font-size: 1rem;
+                color: #e0e0e0;
+                text-shadow: 0 0 3px rgba(224, 224, 224, 0.5);
+            }
 
         .pricing-subtext {
             font-size: 1rem;
@@ -532,16 +558,16 @@
             background: rgba(0, 0, 0, 0.5);
         }
 
-        .pricing-features ul {
-            list-style: none;
-            padding: 0;
-        }
+            .pricing-features ul {
+                list-style: none;
+                padding: 0;
+            }
 
-        .pricing-features li {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 3px rgba(224, 224, 224, 0.5);
-        }
+            .pricing-features li {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+                text-shadow: 0 0 3px rgba(224, 224, 224, 0.5);
+            }
 
         .pricing-footer {
             padding: 1.5rem;
@@ -558,18 +584,18 @@
             transition: all 0.3s ease;
         }
 
-        .pricing-button.free-trial {
-            background: #6f42c1;
-        }
+            .pricing-button.free-trial {
+                background: #6f42c1;
+            }
 
-        .pricing-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
-        }
+            .pricing-button:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+            }
 
-        .pricing-button.free-trial:hover {
-            box-shadow: 0 0 15px rgba(111, 66, 193, 0.7);
-        }
+            .pricing-button.free-trial:hover {
+                box-shadow: 0 0 15px rgba(111, 66, 193, 0.7);
+            }
 
         /* Pop-Up Ads */
         .popup-ad {
@@ -590,8 +616,13 @@
         }
 
         @keyframes glow {
-            from { box-shadow: 0 0 10px #00d4ff; }
-            to { box-shadow: 0 0 30px #00d4ff; }
+            from {
+                box-shadow: 0 0 10px #00d4ff;
+            }
+
+            to {
+                box-shadow: 0 0 30px #00d4ff;
+            }
         }
 
         .popup-ad img {
@@ -623,10 +654,10 @@
             transition: all 0.3s ease;
         }
 
-        .close-popup:hover {
-            color: #ff0000;
-            transform: rotate(90deg);
-        }
+            .close-popup:hover {
+                color: #ff0000;
+                transform: rotate(90deg);
+            }
 
         /* Footer Styling */
         footer {
@@ -635,14 +666,25 @@
             padding: 3rem 0;
         }
 
-        footer h5 {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-        }
+            footer h5 {
+                font-family: 'Orbitron', sans-serif;
+                font-weight: 700;
+            }
 
-        footer a:hover {
-            color: #00d4ff !important;
-            text-shadow: 0 0 10px #00d4ff;
+            footer a:hover {
+                color: #00d4ff !important;
+                text-shadow: 0 0 10px #00d4ff;
+            }
+
+        /* Error Message Styling */
+        .error-message {
+            background-color: rgba(255, 0, 0, 0.2);
+            border: 1px solid #ff5555;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            color: #ff5555;
+            text-align: center;
         }
     </style>
 </head>
@@ -663,24 +705,34 @@
                     <li class="nav-item"><a class="nav-link active" href="index.aspx">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
                     <% if (Session["Username"] == null) { %>
-                        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
                     <% } %>
                     <li class="nav-item"><a class="nav-link" href="security_lab.aspx">Security Lab</a></li>
                     <li class="nav-item"><a class="nav-link" href="account.aspx">Account</a></li>
                     <% if (Session["Username"] != null) { %>
-                        <li class="nav-item">
-                            <span class="nav-link text-white">
-                                <i class="fas fa-user me-2"></i><%= Session["Username"] %>
-                            </span>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white logout-btn" href="index.aspx?logout=true"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
-                        </li>
+                    <li class="nav-item">
+                        <span class="nav-link text-white">
+                            <i class="fas fa-user me-2"></i><%= Session["Username"] ?? "Guest" %>
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white logout-btn" href="index.aspx?logout=true"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
+                    </li>
                     <% } %>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Error Message (if any) -->
+    <% if (Session["ErrorMessage"] != null) { %>
+    <div class="container">
+        <div class="error-message">
+            <%= Session["ErrorMessage"] %>
+        </div>
+    </div>
+    <% Session["ErrorMessage"] = null; %>
+    <% } %>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -998,9 +1050,9 @@
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                     <h5 class="mb-3">Resources</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Blog</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Webinars</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Community</a></li>
+                        <li class="mb-2"><a href="resources.aspx" class="text-white text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="events.aspx?event=webinar" class="text-white text-decoration-none">Webinars</a></li>
+                        <li><a href="resources.aspx" class="text-white text-decoration-none">Community</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-4">
@@ -1173,37 +1225,35 @@
                     const course = courses[courseId];
                     const modalContent = document.getElementById('courseInfoContent');
                     modalContent.innerHTML = `
-    <div class="course-header">
-        <h4>${course.title}</h4>
-        <p class="lead">${course.description}</p>
-    </div>
-
-    <div class="course-content">
-        <div class="course-info">
-            <div class="course-details">
-                <p class="certification-available ${course.hasCertificate ? 'available' : 'not-available'}">
-                    <span class="icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Earn a CyberShield Certificate upon completion">🏆</span>
-                    <strong>CyberShield Certificate ${course.hasCertificate ? 'after completion' : 'not available'}</strong>
-                </p>
-                <p class="video-available ${course.hasVideo ? 'available' : 'not-available'}">
-                    <span class="icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Video tutorials available for this course">🎥</span>
-                    <strong>Video Content ${course.hasVideo ? 'available' : 'not available'}</strong>
-                </p>
-                <p class="estimated-time">
-                    <span class="icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Estimated time to complete the course">🕒</span>
-                    <strong>Duration Time ${course.hours} hours</strong>
-                </p>
-                <ul>
-                    ${course.details.map(detail => `<li>${detail}</li>`).join('')}
-                </ul>
-            </div>
-        </div>
-        <div class="course-image-container">
-            <img src="${course.image}" alt="${course.title}" class="course-image">
-        </div>
-    </div>
-
-`;
+                        <div class="course-header">
+                            <h4>${course.title}</h4>
+                            <p class="lead">${course.description}</p>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <div class="course-details">
+                                    <p class="certification-available ${course.hasCertificate ? 'available' : 'not-available'}">
+                                        <span class="icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Earn a CyberShield Certificate upon completion">🏆</span>
+                                        <strong>CyberShield Certificate ${course.hasCertificate ? 'after completion' : 'not available'}</strong>
+                                    </p>
+                                    <p class="video-available ${course.hasVideo ? 'available' : 'not-available'}">
+                                        <span class="icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Video tutorials available for this course">🎥</span>
+                                        <strong>Video Content ${course.hasVideo ? 'available' : 'not available'}</strong>
+                                    </p>
+                                    <p class="estimated-time">
+                                        <span class="icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Estimated time to complete the course">🕒</span>
+                                        <strong>Duration Time ${course.hours} hours</strong>
+                                    </p>
+                                    <ul>
+                                        ${course.details.map(detail => `<li>${detail}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="course-image-container">
+                                <img src="${course.image}" alt="${course.title}" class="course-image">
+                            </div>
+                        </div>
+                    `;
 
                     document.querySelector('.modal-footer .fun-fact').textContent = course.trivia;
 

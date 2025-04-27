@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Web.UI;
 
 namespace CybersecurityEducational
 {
@@ -7,11 +6,19 @@ namespace CybersecurityEducational
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Handle logout
-            if (Request.QueryString["logout"] == "true")
+            try
             {
-                Session["Username"] = null;
-                Session["UserId"] = null;
+                // Handle logout
+                if (Request.QueryString["logout"] != null && Request.QueryString["logout"].ToString() == "true")
+                {
+                    Session.Abandon(); // Clear the session
+                    Response.Redirect("index.aspx"); // Redirect to index.aspx
+                }
+            }
+            catch (Exception ex)
+            {
+                // Store error message in session to display on the page
+                Session["ErrorMessage"] = "An error occurred: " + ex.Message;
                 Response.Redirect("index.aspx");
             }
         }

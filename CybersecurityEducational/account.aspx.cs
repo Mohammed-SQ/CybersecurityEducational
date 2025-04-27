@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Data.OleDb;
+using System.Data.SqlClient; // Updated to use SqlClient
 using System.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -95,15 +95,15 @@ namespace CybersecurityEducational
 
             try
             {
-                using (OleDbConnection conn = new OleDbConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
 
                     // Check if email already exists
-                    string checkEmailQuery = "SELECT COUNT(*) FROM Users WHERE Email = ?";
-                    using (OleDbCommand checkCmd = new OleDbCommand(checkEmailQuery, conn))
+                    string checkEmailQuery = "SELECT COUNT(*) FROM Users WHERE Email = @Email";
+                    using (SqlCommand checkCmd = new SqlCommand(checkEmailQuery, conn))
                     {
-                        checkCmd.Parameters.AddWithValue("?", regEmail.Text);
+                        checkCmd.Parameters.AddWithValue("@Email", regEmail.Text);
                         int emailCount = (int)checkCmd.ExecuteScalar();
                         if (emailCount > 0)
                         {
@@ -114,13 +114,13 @@ namespace CybersecurityEducational
                     }
 
                     // Insert new user with plain text password
-                    string insertQuery = "INSERT INTO Users (Username, Email, Password, TwoFactorEnabled) VALUES (?, ?, ?, 0); SELECT SCOPE_IDENTITY();";
-                    using (OleDbCommand cmd = new OleDbCommand(insertQuery, conn))
+                    string insertQuery = "INSERT INTO Users (Username, Email, Password, TwoFactorEnabled) OUTPUT INSERTED.Id VALUES (@Username, @Email, @Password, 0)";
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("?", regUsername.Text);
-                        cmd.Parameters.AddWithValue("?", regEmail.Text);
-                        cmd.Parameters.AddWithValue("?", regPassword.Text);
-                        int userId = Convert.ToInt32(cmd.ExecuteScalar());
+                        cmd.Parameters.AddWithValue("@Username", regUsername.Text);
+                        cmd.Parameters.AddWithValue("@Email", regEmail.Text);
+                        cmd.Parameters.AddWithValue("@Password", regPassword.Text);
+                        int userId = (int)cmd.ExecuteScalar();
 
                         // Auto-login after registration
                         Session["Username"] = regUsername.Text;
@@ -138,11 +138,15 @@ namespace CybersecurityEducational
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
+            // Ensure the panel remains visible for validation errors
+            LoginPanel.Visible = true;
+
             // Server-side validation for login fields
             if (string.IsNullOrWhiteSpace(loginEmail.Text))
             {
                 LoginMessage.Text = "Email is required.";
                 LoginMessage.Visible = true;
+                loginEmail.CssClass += " is-invalid"; // Add Bootstrap invalid class
                 return;
             }
 
@@ -150,6 +154,7 @@ namespace CybersecurityEducational
             {
                 LoginMessage.Text = "Invalid email format.";
                 LoginMessage.Visible = true;
+                loginEmail.CssClass += " is-invalid";
                 return;
             }
 
@@ -157,6 +162,7 @@ namespace CybersecurityEducational
             {
                 LoginMessage.Text = "Password is required.";
                 LoginMessage.Visible = true;
+                loginPassword.CssClass += " is-invalid";
                 return;
             }
 
@@ -164,6 +170,7 @@ namespace CybersecurityEducational
             {
                 LoginMessage.Text = "Password must contain only letters and numbers.";
                 LoginMessage.Visible = true;
+                loginPassword.CssClass += " is-invalid";
                 return;
             }
 
@@ -179,14 +186,14 @@ namespace CybersecurityEducational
 
             try
             {
-                using (OleDbConnection conn = new OleDbConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT Id, Username, Password FROM Users WHERE Email = ?";
-                    using (OleDbCommand cmd = new OleDbCommand(query, conn))
+                    string query = "SELECT Id, Username, Password FROM Users WHERE Email = @Email";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("?", loginEmail.Text);
-                        using (OleDbDataReader reader = cmd.ExecuteReader())
+                        cmd.Parameters.AddWithValue("@Email", loginEmail.Text);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {
@@ -205,16 +212,20 @@ namespace CybersecurityEducational
                                 {
                                     loginAttempts++;
                                     Session["LoginAttempts"] = loginAttempts;
-                                    LoginMessage.Text = $"Login failed. Attempt {loginAttempts} of {MAX_LOGIN_ATTEMPTS}.";
+                                    LoginMessage.Text = "Login failed. Attempt " + loginAttempts + " of " + MAX_LOGIN_ATTEMPTS + ".";
                                     LoginMessage.Visible = true;
+                                    loginEmail.CssClass += " is-invalid";
+                                    loginPassword.CssClass += " is-invalid";
                                 }
                             }
                             else
                             {
                                 loginAttempts++;
                                 Session["LoginAttempts"] = loginAttempts;
-                                LoginMessage.Text = $"Login failed. Attempt {loginAttempts} of {MAX_LOGIN_ATTEMPTS}.";
+                                LoginMessage.Text = "Login failed. Attempt " + loginAttempts + " of " + MAX_LOGIN_ATTEMPTS + ".";
                                 LoginMessage.Visible = true;
+                                loginEmail.CssClass += " is-invalid";
+                                loginPassword.CssClass += " is-invalid";
                             }
                         }
                     }
@@ -231,14 +242,14 @@ namespace CybersecurityEducational
         {
             if (Session["Username"] == null || Session["UserId"] == null)
             {
-                ShowSuccess((Panel)FindControl("twoFactorDemo"), "Authentication Required", "Please log in first.");
+                ShowSuccess(twoFactorDemo, "Authentication Required", "Please log in first.");
                 return;
             }
 
-            string code = Request.Form["verificationCode"];
+            string code = verificationCode.Text;
             if (string.IsNullOrWhiteSpace(code) || !Regex.IsMatch(code, @"^[0-9]{6}$"))
             {
-                ShowSuccess((Panel)FindControl("twoFactorDemo"), "Invalid Code", "Please enter a valid 6-digit code.");
+                ShowSuccess(twoFactorDemo, "Invalid Code", "Please enter a valid 6-digit code.");
                 return;
             }
 
@@ -246,26 +257,26 @@ namespace CybersecurityEducational
             {
                 try
                 {
-                    using (OleDbConnection conn = new OleDbConnection(connectionString))
+                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-                        string updateQuery = "UPDATE Users SET TwoFactorEnabled = 1 WHERE Id = ?";
-                        using (OleDbCommand cmd = new OleDbCommand(updateQuery, conn))
+                        string updateQuery = "UPDATE Users SET TwoFactorEnabled = 1 WHERE Id = @UserId";
+                        using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
                         {
-                            cmd.Parameters.AddWithValue("?", Convert.ToInt32(Session["UserId"]));
+                            cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
                             cmd.ExecuteNonQuery();
                         }
                     }
-                    ShowSuccess((Panel)FindControl("twoFactorDemo"), "Verification Successful!", "2FA is now enabled for your account.");
+                    ShowSuccess(twoFactorDemo, "Verification Successful!", "2FA is now enabled for your account.");
                 }
                 catch (Exception ex)
                 {
-                    ShowSuccess((Panel)FindControl("twoFactorDemo"), "Error", "Error: " + ex.Message);
+                    ShowSuccess(twoFactorDemo, "Error", "Error: " + ex.Message);
                 }
             }
             else
             {
-                ShowSuccess((Panel)FindControl("twoFactorDemo"), "Invalid Code", "The verification code is incorrect.");
+                ShowSuccess(twoFactorDemo, "Invalid Code", "The verification code is incorrect.");
             }
         }
 
@@ -327,18 +338,18 @@ namespace CybersecurityEducational
 
             try
             {
-                using (OleDbConnection conn = new OleDbConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string insertQuery = "INSERT INTO Payments (UserId, CardName, CardNumber, ExpiryMonth, ExpiryYear, CVV) VALUES (?, ?, ?, ?, ?, ?)";
-                    using (OleDbCommand cmd = new OleDbCommand(insertQuery, conn))
+                    string insertQuery = "INSERT INTO Payments (UserId, CardName, CardNumber, ExpiryMonth, ExpiryYear, CVV) VALUES (@UserId, @CardName, @CardNumber, @ExpiryMonth, @ExpiryYear, @CVV)";
+                    using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("?", Convert.ToInt32(Session["UserId"]));
-                        cmd.Parameters.AddWithValue("?", cardName.Text);
-                        cmd.Parameters.AddWithValue("?", cardNumber.Text);
-                        cmd.Parameters.AddWithValue("?", Convert.ToInt32(expiryMonth.Text));
-                        cmd.Parameters.AddWithValue("?", Convert.ToInt32(expiryYear.Text));
-                        cmd.Parameters.AddWithValue("?", cvv.Text);
+                        cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
+                        cmd.Parameters.AddWithValue("@CardName", cardName.Text);
+                        cmd.Parameters.AddWithValue("@CardNumber", cardNumber.Text);
+                        cmd.Parameters.AddWithValue("@ExpiryMonth", Convert.ToInt32(expiryMonth.Text));
+                        cmd.Parameters.AddWithValue("@ExpiryYear", Convert.ToInt32(expiryYear.Text));
+                        cmd.Parameters.AddWithValue("@CVV", cvv.Text);
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -355,12 +366,12 @@ namespace CybersecurityEducational
         {
             container.Controls.Clear();
             container.Controls.Add(new LiteralControl(
-                $@"<div class='text-center py-4'>
-                    <i class='fas fa-check-circle text-success' style='font-size: 4rem;'></i>
-                    <h4 class='mt-4 mb-3'>{title}</h4>
-                    <p>{message}</p>
-                    <button class='btn btn-primary btn-animated mt-3' onclick='location.reload()'>Back to Demo</button>
-                </div>"
+                "<div class='text-center py-4'>" +
+                "<i class='fas fa-check-circle text-success' style='font-size: 4rem;'></i>" +
+                "<h4 class='mt-4 mb-3'>" + title + "</h4>" +
+                "<p>" + message + "</p>" +
+                "<button class='btn btn-primary btn-animated mt-3' onclick='location.reload()'>Back to Demo</button>" +
+                "</div>"
             ));
         }
     }
