@@ -206,7 +206,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand animate__animated animate__pulse animate__infinite" href="index.html">
+            <a class="navbar-brand animate__animated animate__pulse animate__infinite" href="index.aspx">
                 <i class="fas fa-shield-alt me-2"></i>CyberShield Academy
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -214,16 +214,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.aspx">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="account.aspx">Account</a></li>
-                    <li class="nav-item"><a class="nav-link" href="security_lab.html">Security Lab</a></li>
-                    <li class="nav-item"><a class="nav-link" href="payment_demo.html">Payment Demo</a></li>
-                    <li class="nav-item" id="userInfo" style="display: none;">
+                    <li class="nav-item"><a class="nav-link" href="security_lab.aspx">Security Lab</a></li>
+                    <li class="nav-item"><a class="nav-link" href="payment_demo.aspx">Payment Demo</a></li>
+                    <li class="nav-item" id="userInfo" runat="server" style='<%= Session["Username"] != null ? "display: block;" : "display: none;" %>'>
                         <span class="nav-link text-white">
-                            <i class="fas fa-user me-2"></i><span id="usernameDisplay"></span>
+                            <i class="fas fa-user me-2"></i><span id="usernameDisplay" runat="server"><%= Session["Username"] != null ? Session["Username"].ToString() : "" %></span>
                         </span>
                     </li>
-                    <li class="nav-item" id="logoutLink" style="display: none;">
+                    <li class="nav-item" id="logoutLink" runat="server" style='<%= Session["Username"] != null ? "display: block;" : "display: none;" %>'>
                         <a class="nav-link text-white logout-btn" href="account.aspx?logout=true"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
                     </li>
                 </ul>
@@ -588,20 +588,28 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Load user session from localStorage
-        let user = JSON.parse(localStorage.getItem('user')) || null;
+        // Sync client-side state with server-side session
+        let user = null;
+        <% if (Session["Username"] != null) { %>
+        user = { username: '<%= Session["Username"].ToString() %>' };
+            localStorage.setItem('user', JSON.stringify(user));
+        <% } else { %>
+            localStorage.removeItem('user');
+        <% } %>
+
+        // Update navigation bar based on server-side session
         if (user) {
             document.getElementById('userInfo').style.display = 'block';
             document.getElementById('logoutLink').style.display = 'block';
             document.getElementById('usernameDisplay').textContent = user.username;
+        } else {
+            document.getElementById('userInfo').style.display = 'none';
+            document.getElementById('logoutLink').style.display = 'none';
         }
 
         // Logout function
         function logout() {
             localStorage.removeItem('user');
-            user = null;
-            document.getElementById('userInfo').style.display = 'none';
-            document.getElementById('logoutLink').style.display = 'none';
             window.location.href = 'account.aspx?logout=true';
         }
 

@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CybersecurityEducational
-{
-
-
-    public partial class course
-    {
-
+namespace CybersecurityEducational {
+    
+    
+    public partial class course {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
