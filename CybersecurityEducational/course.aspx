@@ -124,7 +124,7 @@
         }
 
         .overview-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 261, 0.05);
             border: 1px solid #00d4ff;
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
             border-radius: 15px;
@@ -209,6 +209,14 @@
             color: #e0e0e0;
         }
 
+        .practice-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 1rem;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
         .step-number {
             display: inline-block;
             width: 40px;
@@ -220,6 +228,16 @@
             font-size: 1.2rem;
             font-weight: bold;
             margin-right: 1rem;
+        }
+
+        /* Subsection Heading */
+        .subsection-heading {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: #ff00ff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #ff00ff;
         }
 
         /* Footer Styling */
@@ -345,6 +363,7 @@
                     <h5 class="mb-3">Missions</h5>
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="course.aspx?courseId=web-security" class="text-white text-decoration-none">Web Security</a></li>
+                        <li class="mb-2"><a href="course.aspx?courseId=web-security#sql-injection" class="text-white text-decoration-none">SQL Injection</a></li>
                         <li class="mb-2"><a href="course.aspx?courseId=network-defense" class="text-white text-decoration-none">Network Defense</a></li>
                         <li class="mb-2"><a href="course.aspx?courseId=secure-coding" class="text-white text-decoration-none">Secure Coding</a></li>
                         <li><a href="#courses" class="text-white text-decoration-none">All Missions</a></li>
@@ -390,9 +409,57 @@
                     hasVideo: true,
                     videoEmbed: '<iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID_WEB_SECURITY" frameborder="0" allowfullscreen></iframe>',
                     practiceSteps: [
-                        { title: 'Step 1: Download the XSS Testing Tool', description: 'Download the XSS testing tool from the provided link: <a href="https://example.com/xss-tool.zip" target="_blank">xss-tool.zip</a>.' },
-                        { title: 'Step 2: Extract the File', description: 'Unzip the downloaded file using a tool like WinRAR or 7-Zip to a folder on your desktop.' },
-                        { title: 'Step 3: Place in C: Drive', description: 'Move the extracted folder to your C: drive, e.g., <code>C:\\XSSTool</code>, to set up your testing environment.' }
+                        { 
+                            title: 'XSS Vulnerability Testing', 
+                            description: '<h3 class="subsection-heading" id="xss">Cross-Site Scripting (XSS)</h3>' +
+                                         '<p>Follow these steps to practice identifying and mitigating XSS vulnerabilities:</p>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<h5><span class="step-number">1</span>Download the XSS Testing Tool</h5>' +
+                                         '<p>Download the XSS testing tool from the provided link: <a href="https://example.com/xss-tool.zip" target="_blank">xss-tool.zip</a>.</p>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<h5><span class="step-number">2</span>Extract the File</h5>' +
+                                         '<p>Unzip the downloaded file using a tool like WinRAR or 7-Zip to a folder on your desktop.</p>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<h5><span class="step-number">3</span>Place in C: Drive</h5>' +
+                                         '<p>Move the extracted folder to your C: drive, e.g., <code>C:\\XSSTool</code>, to set up your testing environment.</p>' +
+                                         '</div>'
+                        },
+                        { 
+                            title: 'SQL Injection Defense', 
+                            description: '<h3 class="subsection-heading" id="sql-injection">SQL Injection Defense</h3>' +
+                                         '<p>Follow these steps to practice identifying and preventing SQL injection vulnerabilities:</p>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<h5><span class="step-number">1</span>Download the SQL Injection Scanner Tool</h5>' +
+                                         '<p>Download the SQL Injection Scanner tool from the provided link: <a href="http://securityproject-001-site1.qtempurl.com/courses/SQLInjectionScanner.zip" target="_blank">SQLInjectionScanner.zip</a>.</p>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<h5><span class="step-number">2</span>Disable Windows Defender Real-Time Protection (Temporarily)</h5>' +
+                                         '<p>This tool may be flagged by Windows Defender. To avoid issues, temporarily disable Windows Defender Real-Time Protection:<br>' +
+                                         '1. Click the Start menu and type "Windows Security". Select the "Windows Security" app.<br><img src="/securityproject-001/WindowsSearch.png" alt="Search for Windows Security"><br>' +
+                                         '2. In the Windows Security app, click on "Virus & threat protection".<br><img src="/securityproject-001/WindowsSecurityHome.png" alt="Windows Security Home"><br>' +
+                                         '3. Click on "Manage settings" under "Virus & threat protection settings".<br><img src="/securityproject-001/VirusThreatProtection.png" alt="Virus & Threat Protection"><br>' +
+                                         '4. Turn off "Real-time protection". You should see it set to "Off".<br><img src="/securityproject-001/RealTimeProtectionOff.png" alt="Real-Time Protection Off"><br>' +
+                                         '<strong>Important:</strong> Re-enable Windows Defender after completing this course to keep your system secure.</p>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<h5><span class="step-number">3</span>Disable Microsoft Defender SmartScreen (Temporarily)</h5>' +
+                                         '<p>Microsoft Defender SmartScreen may also block the tool. To disable it temporarily:<br>' +
+                                         '1. In the Windows Security app, click on "App & browser control".<br><img src="/securityproject-001/WindowsSecurityHome.png" alt="Windows Security Home"><br>' +
+                                         '2. Click on "Reputation-based protection settings".<br><img src="/securityproject-001/AppBrowserControl.png" alt="App & Browser Control"><br>' +
+                                         '3. Turn off "Check apps and files". You should see it set to "Off".<br><img src="/securityproject-001/CheckAppsFilesOff.png" alt="Check Apps and Files Off"><br>' +
+                                         '<strong>Important:</strong> Re-enable SmartScreen after completing this course to maintain your system’s security.</p>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<h5><span class="step-number">4</span>Extract the File</h5>' +
+                                         '<p>Unzip the downloaded file using a tool like WinRAR or 7-Zip to a folder on your desktop.</p>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<h5><span class="step-number">5</span>Place in C: Drive</h5>' +
+                                         '<p>Move the extracted folder to your C: drive, e.g., <code>C:\\SQLInjectionScanner</code>, to set up your testing environment.</p>' +
+                                         '</div>'
+                        }
                     ]
                 },
                 'network-defense': {
@@ -443,12 +510,12 @@
 
             // Populate practice steps
             const practiceSteps = document.getElementById('practiceSteps');
-            course.practiceSteps.forEach((step, index) => {
+            course.practiceSteps.forEach((step) => {
                 const stepCard = document.createElement('div');
                 stepCard.className = 'practice-card animate__animated animate__fadeInUp';
                 stepCard.innerHTML = `
-                    <h5><span class="step-number">${index + 1}</span>${step.title}</h5>
-                    <p>${step.description}</p>
+                    <h5>${step.title}</h5>
+                    <div>${step.description}</div>
                 `;
                 practiceSteps.appendChild(stepCard);
             });
