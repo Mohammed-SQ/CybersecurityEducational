@@ -566,7 +566,7 @@
             .pricing-features li {
                 font-size: 1rem;
                 margin-bottom: 0.5rem;
-                text-shadow: 0 0 3px rgba(224, 224, 224, 0.5);
+                text-shadow:  quotidienne: 0 0 3px rgba(224, 224, 224, 0.5);
             }
 
         .pricing-footer {
@@ -609,7 +609,7 @@
             box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
             padding: 1.5rem;
             z-index: 1000;
-            max-width: 450px;
+            max-width: 550px;
             text-align: center;
             display: none;
             animation: glow 1.5s infinite alternate;
@@ -626,8 +626,8 @@
         }
 
         .popup-ad img {
-            width: 250px;
-            height: 200px;
+            width: 350px;
+            height: 280px;
             border-radius: 10px;
             margin: 1rem 0;
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
@@ -665,13 +665,22 @@
             padding: 3rem 0;
         }
 
+        .comment-section .row {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            gap: 1rem;
+            padding-bottom: 1rem;
+        }
+
         .comment-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid #00d4ff;
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
             border-radius: 10px;
             padding: 1rem;
-            margin-bottom: 1rem;
+            width: 300px;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             transition: all 0.3s ease;
@@ -702,7 +711,7 @@
         }
 
         .comment-content p {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #e0e0e0;
             margin: 0;
         }
@@ -797,7 +806,7 @@
     <section class="hero-section">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 animate__animated animate__fadeInLeft">
+                <div class="col-lg-12 animate__animated animate__fadeInLeft">
                     <h1 class="display-4 fw-bold mb-4">Defend the Future: Master Cybersecurity</h1>
                     <p class="lead mb-4">Unleash your potential with elite training to combat cyber threats in a digital battlefield.</p>
                     <div class="d-grid gap-2 d-md-flex">
@@ -809,9 +818,6 @@
                         <span class="badge bg-dark text-light me-2"><i class="fas fa-star me-1"></i> 4.9/5 Rating</span>
                         <span class="badge bg-dark text-light"><i class="fas fa-lock me-1"></i> Elite Certified</span>
                     </div>
-                </div>
-                <div class="col-lg-6 animate__animated animate__fadeInRight">
-                    <img src="/images/banner.jpg" alt="Cybersecurity Ops" class="img-fluid rounded shadow">
                 </div>
             </div>
         </div>
@@ -1094,26 +1100,26 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 mx-auto">
+                <div class="col-lg-12">
                     <div class="comment-card animate__animated animate__fadeInUp">
                         <img src="/images/profile.jpg" alt="AgentX Profile">
                         <div class="comment-content">
                             <h6>AgentX</h6>
-                            <p>"The Web Security Ops course was a game-changer! Stopped an XSS attack in its tracks."</p>
+                            <p>"I tried CyberShield Academy and it’s amazing! The Web Security Ops course helped me secure my site in just a week!"</p>
                         </div>
                     </div>
                     <div class="comment-card animate__animated animate__fadeInUp">
                         <img src="/images/profile.jpg" alt="CyberGuard Profile">
                         <div class="comment-content">
                             <h6>CyberGuard</h6>
-                            <p>"Thanks to Network Defense Tactics, I secured my company's network against intrusions."</p>
+                            <p>"This platform is a lifesaver! Network Defense Tactics gave me the skills to protect my company’s network."</p>
                         </div>
                     </div>
                     <div class="comment-card animate__animated animate__fadeInUp">
                         <img src="/images/profile.jpg" alt="ShieldPro Profile">
                         <div class="comment-content">
                             <h6>ShieldPro</h6>
-                            <p>"Secure Coding Protocols taught me how to eliminate vulnerabilities in my apps. Highly recommend!"</p>
+                            <p>"Best cybersecurity training I’ve ever taken! Secure Coding Protocols made my apps so much safer."</p>
                         </div>
                     </div>
                 </div>

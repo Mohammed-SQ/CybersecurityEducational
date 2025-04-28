@@ -1,14 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="CybersecurityEducational.Index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="course.aspx.cs" Inherits="CybersecurityEducational.Course" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberShield Academy - Elite Cybersecurity Training</title>
+    <title>CyberShield Academy - Course Tutorial</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -34,12 +34,19 @@
         }
 
         @keyframes binary-scroll {
-            0% {
-                background-position: 0 0;
-            }
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100px; }
+        }
 
-            100% {
-                background-position: 0 100px;
+        /* Custom Container Width */
+        .container {
+            max-width: 90% !important; /* Wider container for smaller screens */
+            width: 100%;
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1400px !important; /* Increased width for extra-large screens */
             }
         }
 
@@ -49,6 +56,7 @@
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
             padding: 1rem 0;
             transition: all 0.3s ease;
+            width: 100%;
         }
 
         .navbar-brand {
@@ -60,10 +68,10 @@
             transition: all 0.3s ease;
         }
 
-            .navbar-brand:hover {
-                color: #ff00ff !important;
-                text-shadow: 0 0 20px #ff00ff;
-            }
+        .navbar-brand:hover {
+            color: #ff00ff !important;
+            text-shadow: 0 0 20px #ff00ff;
+        }
 
         .nav-link {
             font-family: 'Roboto', sans-serif;
@@ -73,11 +81,11 @@
             transition: all 0.3s ease;
         }
 
-            .nav-link:hover, .nav-link.active {
-                color: #00d4ff !important;
-                text-shadow: 0 0 10px #00d4ff;
-                transform: scale(1.05);
-            }
+        .nav-link:hover, .nav-link.active {
+            color: #00d4ff !important;
+            text-shadow: 0 0 10px #00d4ff;
+            transform: scale(1.05);
+        }
 
         .logout-btn {
             background: #ff0000;
@@ -87,633 +95,191 @@
             transition: all 0.3s ease;
         }
 
-            .logout-btn:hover {
-                background: #cc0000;
-                transform: scale(1.1);
-                box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-            }
+        .logout-btn:hover {
+            background: #cc0000;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+        }
 
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, rgba(13, 110, 253, 0.8), rgba(10, 88, 202, 0.8)), url('/images/banner.jpg');
+        /* Header Section */
+        .course-header {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.8), rgba(10, 88, 202, 0.8)), url('https://via.placeholder.com/1500x600?text=Cyber+Matrix');
             background-blend-mode: overlay;
             background-size: cover;
             background-position: center;
-            padding: 8rem 0;
+            padding: 5rem 0;
             color: white;
             text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
             position: relative;
         }
 
-            .hero-section h1 {
-                font-family: 'Orbitron', sans-serif;
-                font-size: 4.5rem;
-                font-weight: 900;
-                animation: glitch 2s linear infinite;
-            }
-
-        @keyframes glitch {
-            2%, 64% {
-                transform: translate(2px, 0) skew(0deg);
-            }
-
-            4%, 60% {
-                transform: translate(-2px, 0) skew(0deg);
-            }
-
-            62% {
-                transform: translate(0, 0) skew(5deg);
-            }
+        .course-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            animation: glitch 2s linear infinite;
         }
 
-        .hero-section p.lead {
-            font-size: 1.5rem;
+        @keyframes glitch {
+            2%, 64% { transform: translate(2px, 0) skew(0deg); }
+            4%, 60% { transform: translate(-2px, 0) skew(0deg); }
+            62% { transform: translate(0, 0) skew(5deg); }
+        }
+
+        .course-header p.lead {
+            font-size: 1.3rem;
             margin-bottom: 2rem;
         }
 
-        .btn-animated {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-            font-weight: 600;
-        }
-
-            .btn-animated:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
-            }
-
-        /* Comments Ticker */
-        .comments-ticker {
-            background: rgba(0, 0, 0, 0.85);
-            padding: 1rem 0;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            z-index: 10;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        .ticker-content {
-            display: inline-block;
-            animation: ticker 30s linear infinite;
-            font-size: 1.2rem;
-        }
-
-        @keyframes ticker {
-            0% {
-                transform: translateX(100%);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        /* Feature Cards */
-        .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #00d4ff;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-            .feature-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
-            }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            line-height: 70px;
-            font-size: 2rem;
-            background: linear-gradient(45deg, #00d4ff, #ff00ff);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(0, 212, 255, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(0, 212, 255, 0);
-            }
-        }
-
-        /* Courses Section */
-        .lab-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #00d4ff;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            height: 350px;
-        }
-
-            .lab-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
-            }
-
-            .lab-card .card-img-top {
-                width: 100%;
-                height: 150px;
-                object-fit: cover;
-                border-top-left-radius: 15px;
-                border-top-right-radius: 15px;
-            }
-
-            .lab-card .card-body {
-                padding: 1.5rem;
-                height: calc(100% - 150px);
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-
-            .lab-card h5 {
-                font-family: 'Orbitron', sans-serif;
-                font-size: 1.4rem;
-                margin-bottom: 1rem;
-            }
-
-            .lab-card p {
-                font-size: 1rem;
-                flex-grow: 1;
-            }
-
-        .course-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lab-card:hover .course-overlay {
-            opacity: 1;
-        }
-
-        .course-overlay .btn-explore {
-            background: linear-gradient(45deg, #00d4ff, #ff00ff);
-            border: none;
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-            color: white;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-            .course-overlay .btn-explore:hover {
-                transform: scale(1.1);
-                box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
-            }
-
-        /* Course Modal Styling */
-        .modal-content {
-            background: linear-gradient(135deg, #0a0a23, #1a1a3d);
-            border: 2px solid #00d4ff;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-            border-radius: 15px;
-        }
-
-        .modal-header {
-            background: linear-gradient(45deg, #00d4ff, #ff00ff);
-            border-bottom: none;
-        }
-
-        .modal-title {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            text-shadow: 0 0 10px #00d4ff;
-        }
-
-        .modal-body {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            padding: 20px;
-            margin: 0;
-        }
-
-        .course-content {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 0;
-            padding: 0;
-            margin: 0;
-            align-items: flex-start;
-        }
-
-        .course-info {
-            flex: 1;
-            min-width: 0;
-            padding: 0;
-            margin: 0;
-        }
-
-        .course-image-container {
-            flex: 1;
-            min-width: 0;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .course-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
-            margin: 0;
-            padding: 0;
-        }
-
-        .modal-body .course-details {
-            margin-top: 1rem;
-        }
-
-            .modal-body .course-details p {
-                margin-bottom: 1rem;
-                font-weight: bold;
-            }
-
-        .modal-body .certification-available, .video-available, .estimated-time {
-            display: flex;
-            align-items: center;
-        }
-
-            .modal-body .certification-available .icon,
-            .modal-body .video-available .icon,
-            .modal-body .estimated-time .icon {
-                margin-right: 0.5rem;
-                font-size: 1.2rem;
-            }
-
-            .modal-body .certification-available.available, .video-available.available, .estimated-time {
-                color: #00ff00;
-            }
-
-            .modal-body .certification-available.not-available, .video-available.not-available {
-                color: #ff0000;
-            }
-
-        .modal-body ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 1rem;
-        }
-
-            .modal-body ul li {
-                margin-bottom: 1rem;
-                font-size: 1.1rem;
-            }
-
-                .modal-body ul li::before {
-                    content: "• ";
-                    color: #00d4ff;
-                    font-weight: bold;
-                }
-
-        .modal-body {
-            border-top: 1px solid rgba(0, 212, 255, 0.3);
-            margin: 1rem 0;
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-            .modal-footer .fun-fact {
-                font-size: 0.9rem;
-                color: #00d4ff;
-                text-shadow: 0 0 5px #00d4ff;
-            }
-
-            .modal-footer .btn-secondary {
-                background: rgba(255, 255, 255, 0.1);
-                border: 1px solid #00d4ff;
-                color: #e0e0e0;
-            }
-
-            .modal-footer .btn-primary {
-                background: linear-gradient(45deg, #00d4ff, #ff00ff);
-                border: none;
-                text-shadow: 0 0 5px #00d4ff;
-            }
-
-                .modal-footer .btn-primary:hover {
-                    box-shadow: 0 0 15px rgba(0, 212, 255, 0.7);
-                }
-
-        /* Pricing Section */
-        #pricing {
-            background: #1a1a3d;
-        }
-
-        .pricing-card {
-            background: linear-gradient(45deg, #00d4ff, #ff00ff);
-            border: 2px solid #00d4ff;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-            .pricing-card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 0 30px rgba(0, 212, 255, 0.8);
-            }
-
-            .pricing-card.popular {
-                border: 3px solid #ff00ff;
-                box-shadow: 0 0 30px rgba(255, 0, 255, 0.7);
-            }
-
-        .pricing-header {
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .discount-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #ffc107;
-            color: #000;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            box-shadow: 0 0 10px rgba(255, 193, 7, 0.7);
-            animation: glow 1.5s infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 5px #ffc107;
-            }
-
-            to {
-                box-shadow: 0 0 15px #ffc107;
-            }
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ff00ff;
-            color: #fff;
-            padding: 0.4rem 1.2rem;
-            border-radius: 20px;
-            font-size: 1rem;
-            font-weight: bold;
-            box-shadow: 0 0 10px rgba(255, 0, 255, 0.7);
-        }
-
-        .pricing-title {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #fff;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-        }
-
-        .pricing-price {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-
-            .pricing-price .currency {
-                font-size: 2.5rem;
-                color: #fff;
-                margin-right: 0.5rem;
-            }
-
-            .pricing-price .amount {
-                font-size: 3rem;
-                color: #fff;
-                font-weight: bold;
-            }
-
-            .pricing-price .real-price-container {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                margin-left: 1rem;
-            }
-
-            .pricing-price .real-price {
-                font-size: 1.3rem;
-                color: #ff5555;
-                text-decoration: line-through;
-                text-shadow: 0 0 3px rgba(255, 85, 85, 0.5);
-            }
-
-            .pricing-price .period {
-                font-size: 1rem;
-                color: #e0e0e0;
-                text-shadow: 0 0 3px rgba(224, 224, 224, 0.5);
-            }
-
-        .pricing-subtext {
-            font-size: 1rem;
-            color: #e0e0e0;
-            margin-bottom: 0;
-            text-shadow: 0 0 3px rgba(224, 224, 224, 0.5);
-        }
-
-        .pricing-features {
-            padding: 1.5rem;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-            .pricing-features ul {
-                list-style: none;
-                padding: 0;
-            }
-
-            .pricing-features li {
-                font-size: 1rem;
-                margin-bottom: 0.5rem;
-                text-shadow: 0 0 3px rgba(224, 224, 224, 0.5);
-            }
-
-        .pricing-footer {
-            padding: 1.5rem;
-        }
-
-        .pricing-button {
-            background: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 10px;
-            padding: 0.75rem 1.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-            .pricing-button.free-trial {
-                background: #6f42c1;
-            }
-
-            .pricing-button:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
-            }
-
-            .pricing-button.free-trial:hover {
-                box-shadow: 0 0 15px rgba(111, 66, 193, 0.7);
-            }
-
-        /* Pop-Up Ads */
-        .popup-ad {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, #0a0a23, #1a1a3d);
-            border: 2px solid #00d4ff;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
-            padding: 1.5rem;
-            z-index: 1000;
-            max-width: 550px;
-            text-align: center;
-            display: none;
-            animation: glow 1.5s infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 10px #00d4ff;
-            }
-
-            to {
-                box-shadow: 0 0 30px #00d4ff;
-            }
-        }
-
-        .popup-ad img {
-            width: 350px;
-            height: 280px;
-            border-radius: 10px;
-            margin: 1rem 0;
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
-        }
-
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 999;
-            display: none;
-        }
-
-        .close-popup {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #ff5555;
-            transition: all 0.3s ease;
-        }
-
-            .close-popup:hover {
-                color: #ff0000;
-                transform: rotate(90deg);
-            }
-
-        /* Comment Section */
-        .comment-section {
-            background: #1a1a3d;
+        /* Overview Section */
+        .overview-section {
             padding: 3rem 0;
         }
 
-        .comment-section .row {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            gap: 1rem;
-            padding-bottom: 1rem;
-        }
-
-        .comment-card {
-            background: rgba(255, 255, 255, 0.05);
+        .overview-card {
+            background: rgba(255, 255, 261, 0.05);
             border: 1px solid #00d4ff;
             box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-            border-radius: 10px;
-            padding: 1rem;
-            width: 300px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
+            border-radius: 15px;
+            padding: 2rem;
             transition: all 0.3s ease;
         }
 
-        .comment-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
         }
 
-        .comment-card img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 1rem;
+        .overview-card h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .overview-card p {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 3rem 0;
+            background: #1a1a3d;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 400px;
+            background: rgba(255, 0, 0, 0.2);
+            border: 2px dashed #ff5555;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff5555;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* Practice Section */
+        .practice-section {
+            padding: 3rem 0;
+        }
+
+        .practice-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #00d4ff;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .practice-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+        }
+
+        .practice-card h5 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .practice-card .text-content {
+            margin-bottom: 1rem;
+        }
+
+        .practice-card .image-content {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .practice-card img {
+            width: 100%;
+            max-width: 400px; /* Increased size for better visibility */
+            height: auto;
+            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
         }
 
-        .comment-content {
-            flex-grow: 1;
-        }
-
-        .comment-content h6 {
-            font-family: 'Orbitron', sans-serif;
+        .practice-card p {
             font-size: 1.1rem;
-            color: #00d4ff;
-            margin-bottom: 0.5rem;
+            color: #e0e0e0;
         }
 
-        .comment-content p {
-            font-size: 0.9rem;
-            color: #e0e0e0;
-            margin: 0;
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: linear-gradient(45deg, #00d4ff, #ff00ff);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        /* Subsection Heading */
+        .subsection-heading {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: #ff00ff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        /* Next Course Button */
+        .next-course-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #00d4ff, #ff00ff);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .next-course-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
         }
 
         /* Footer Styling */
@@ -723,36 +289,14 @@
             padding: 3rem 0;
         }
 
-            footer h5 {
-                font-family: 'Orbitron', sans-serif;
-                font-weight: 700;
-            }
-
-            footer a:hover {
-                color: #00d4ff !important;
-                text-shadow: 0 0 10px #00d4ff;
-            }
-
-        /* Error Message Styling */
-        .error-message {
-            background-color: rgba(255, 0, 0, 0.2);
-            border: 1px solid #ff5555;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 5px;
-            color: #ff5555;
-            text-align: center;
+        footer h5 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
         }
 
-        /* Access Denied Message in Modal */
-        .access-denied {
-            background-color: rgba(255, 0, 0, 0.2);
-            border: 1px solid #ff5555;
-            padding: 1rem;
-            margin-top: 1rem;
-            border-radius: 5px;
-            color: #ff5555;
-            text-align: center;
+        footer a:hover {
+            color: #00d4ff !important;
+            text-shadow: 0 0 10px #00d4ff;
         }
     </style>
 </head>
@@ -770,363 +314,79 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.aspx">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.aspx">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#courses">Courses</a></li>
                     <% if (Session["Username"] == null) { %>
-                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
                     <% } %>
                     <li class="nav-item"><a class="nav-link" href="security_lab.aspx">Security Lab</a></li>
                     <li class="nav-item"><a class="nav-link" href="account.aspx">Account</a></li>
                     <% if (Session["Username"] != null) { %>
-                    <li class="nav-item">
-                        <span class="nav-link text-white">
-                            <i class="fas fa-user me-2"></i><%= Session["Username"] ?? "Guest" %>
-                        </span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white logout-btn" href="index.aspx?logout=true"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
-                    </li>
+                        <li class="nav-item">
+                            <span class="nav-link text-white">
+                                <i class="fas fa-user me-2"></i><%= Session["Username"] %>
+                            </span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white logout-btn" href="index.aspx?logout=true"><i class="fas fa-sign-out-alt me-2"></i>Logout</a>
+                        </li>
+                    <% } else { %>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="account.aspx"><i class="fas fa-sign-in-alt me-2"></i>Login</a>
+                        </li>
                     <% } %>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Error Message (if any) -->
-    <% if (Session["ErrorMessage"] != null) { %>
-    <div class="container">
-        <div class="error-message">
-            <%= Session["ErrorMessage"] %>
-        </div>
-    </div>
-    <% Session["ErrorMessage"] = null; %>
-    <% } %>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
+    <!-- Course Header -->
+    <section class="course-header">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12 animate__animated animate__fadeInLeft">
-                    <h1 class="display-4 fw-bold mb-4">Defend the Future: Master Cybersecurity</h1>
-                    <p class="lead mb-4">Unleash your potential with elite training to combat cyber threats in a digital battlefield.</p>
-                    <div class="d-grid gap-2 d-md-flex">
-                        <a href="account.aspx" class="btn btn-primary btn-lg px-4 me-md-2 btn-animated">Launch Mission</a>
-                        <a href="#courses" class="btn btn-outline-light btn-lg px-4 btn-animated">Explore Ops</a>
-                    </div>
-                    <div class="mt-4">
-                        <span class="badge bg-dark text-light me-2"><i class="fas fa-users me-1"></i> 15,000+ Agents</span>
-                        <span class="badge bg-dark text-light me-2"><i class="fas fa-star me-1"></i> 4.9/5 Rating</span>
-                        <span class="badge bg-dark text-light"><i class="fas fa-lock me-1"></i> Elite Certified</span>
-                    </div>
-                </div>
-            </div>
+            <h1 id="courseTitle">Course Title</h1>
+            <p class="lead" id="courseDescription">Course Description</p>
         </div>
     </section>
 
-    <!-- Moving Comments Ticker -->
-    <section class="comments-ticker">
-        <div class="ticker-content">
-            <span class="mx-3"><i class="fas fa-skull-crossbones text-danger me-2"></i> Alert: "Just stopped a phishing attack thanks to Web Security Ops!" - Agent K</span>
-            <span class="mx-3"><i class="fas fa-shield-alt text-success me-2"></i> Live Feedback: "Network Defense Tactics saved my company from a DDoS!" - Agent R</span>
-            <span class="mx-3"><i class="fas fa-star text-warning me-2"></i> New Review: "5/5 stars—Secure Coding Protocols changed how I code!" - Agent M</span>
-            <span class="mx-3"><i class="fas fa-lock text-info me-2"></i> Pro Tip: "Always use a VPN on public Wi-Fi to stay safe!" - CyberShield Team</span>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="py-5 bg-dark">
+    <!-- Overview Section -->
+    <section class="overview-section">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="fw-bold mb-3 animate__animated animate__fadeIn">Why CyberShield Academy?</h2>
-                    <p class="lead">Elite training for the ultimate cyber defense.</p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4 animate__animated animate__fadeInUp">
-                    <div class="card feature-card">
-                        <div class="card-body text-center p-4">
-                            <div class="feature-icon text-white rounded-circle mb-4"><i class="fas fa-code"></i></div>
-                            <h5 class="card-title">Live Hacking Sims</h5>
-                            <p class="card-text">Engage in real-time hacking simulations to master defense tactics.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 animate__animated animate__fadeInUp">
-                    <div class="card feature-card">
-                        <div class="card-body text-center p-4">
-                            <div class="feature-icon text-white rounded-circle mb-4"><i class="fas fa-skull-crossbones"></i></div>
-                            <h5 class="card-title">Dark Web Insights</h5>
-                            <p class="card-text">Learn from real dark web threats with expert-led demos.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 animate__animated animate__fadeInUp">
-                    <div class="card feature-card">
-                        <div class="card-body text-center p-4">
-                            <div class="feature-icon text-white rounded-circle mb-4"><i class="fas fa-shield-alt"></i></div>
-                            <h5 class="card-title">Zero-Day Defense</h5>
-                            <p class="card-text">Stay ahead with strategies to counter the latest exploits.</p>
-                        </div>
+            <h2 class="text-center fw-bold mb-5 animate__animated animate__fadeIn">Course Overview</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="overview-card animate__animated animate__fadeIn">
+                        <h2 id="overviewTitle">Overview</h2>
+                        <p id="overviewDescription"></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Courses Section -->
-    <section id="courses" class="py-5">
+    <!-- Video Section -->
+    <section class="video-section">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="fw-bold mb-3 animate__animated animate__fadeIn">Elite Cyber Ops Training</h2>
-                    <p class="lead">Arm yourself with cutting-edge skills to dominate the cyber battlefield.</p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <!-- Course 1: Web Security Ops -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card lab-card">
-                        <img src="/images/course.jpeg" alt="Web Security Ops" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Web Security Ops</h5>
-                            <p class="card-text">Infiltrate web vulnerabilities like XSS and SQL injection to fortify defenses.</p>
-                            <div class="course-overlay">
-                                <button class="btn btn-explore explore-course" data-course-id="web-security">Explore</button>
-                            </div>
-                        </div>
+            <h2 class="text-center fw-bold mb-5 animate__animated animate__fadeIn">Watch the Tutorial Video</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="video-container" id="videoContainer">
+                        <!-- Video will be dynamically inserted here -->
                     </div>
-                </div>
-                <!-- Course 2: Network Defense Tactics -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card lab-card">
-                        <img src="/images/course.jpeg" alt="Network Defense Tactics" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Network Defense Tactics</h5>
-                            <p class="card-text">Secure networks against advanced intrusions with elite strategies.</p>
-                            <div class="course-overlay">
-                                <button class="btn btn-explore explore-course" data-course-id="network-defense">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Course 3: Secure Coding Protocols -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card lab-card">
-                        <img src="/images/course.jpeg" alt="Secure Coding Protocols" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Secure Coding Protocols</h5>
-                            <p class="card-text">Code like a pro to eliminate vulnerabilities in your applications.</p>
-                            <div class="course-overlay">
-                                <button class="btn btn-explore explore-course" data-course-id="secure-coding">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Course 4: Ethical Hacking Ops -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card lab-card">
-                        <img src="/images/course.jpeg" alt="Ethical Hacking Ops" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Ethical Hacking Ops</h5>
-                            <p class="card-text">Master penetration testing to expose and fix critical vulnerabilities.</p>
-                            <div class="course-overlay">
-                                <button class="btn btn-explore explore-course" data-course-id="ethical-hacking">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Course 5: Incident Response Unit -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card lab-card">
-                        <img src="/images/course.jpeg" alt="Incident Response Unit" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Incident Response Unit</h5>
-                            <p class="card-text">Lead rapid response to neutralize cyber breaches effectively.</p>
-                            <div class="course-overlay">
-                                <button class="btn btn-explore explore-course" data-course-id="incident-response">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Course 6: Cloud Security Defense -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card lab-card">
-                        <img src="/images/course.jpeg" alt="Cloud Security Defense" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Cloud Security Defense</h5>
-                            <p class="card-text">Protect cloud systems from advanced threats with elite tactics.</p>
-                            <div class="course-overlay">
-                                <button class="btn btn-explore explore-course" data-course-id="cloud-security">Explore</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5">
-                <a href="account.aspx" class="btn btn-lg btn-outline-primary btn-animated">Launch All Missions</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section (Hidden if Logged In) -->
-    <% if (Session["Username"] == null) { %>
-    <section id="pricing" class="py-5">
-        <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="fw-bold mb-3 animate__animated animate__fadeIn">Select Your Cyber Plan</h2>
-                    <p class="lead">Unlock elite tools for your cyber defense journey.</p>
-                </div>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <h4 class="pricing-title">Cyber Novice</h4>
-                            <div class="pricing-price">
-                                <span class="currency">$</span>
-                                <span class="amount">0</span>
-                                <div class="real-price-container">
-                                    <s class="real-price">$7.99</s>
-                                    <span class="period">/month</span>
-                                </div>
-                            </div>
-                            <p class="pricing-subtext">Start your learning journey</p>
-                        </div>
-                        <div class="pricing-features">
-                            <ul>
-                                <li><i class="fas fa-check text-success me-2"></i> 3 Basic Missions</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Cyber Quizzes</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Community Access</li>
-                                <li><i class="fas fa-times text-danger me-2"></i> Advanced Labs</li>
-                                <li><i class="fas fa-times text-danger me-2"></i> Certification Prep</li>
-                                <li><i class="fas fa-times text-danger me-2"></i> Elite Mentoring</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <button class="pricing-button free-trial w-100" id="freePlanBtn">Start My Free Trial for 30 Days</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp">
-                    <div class="pricing-card popular">
-                        <div class="pricing-header">
-                            <span class="popular-badge">Most Chosen</span>
-                            <h4 class="pricing-title">Cyber Pro</h4>
-                            <div class="pricing-price">
-                                <span class="currency">$</span>
-                                <span class="amount">11.99</span>
-                                <div class="real-price-container">
-                                    <s class="real-price">$29</s>
-                                    <span class="period">/month</span>
-                                </div>
-                            </div>
-                            <p class="pricing-subtext">Advance your skills</p>
-                        </div>
-                        <div class="pricing-features">
-                            <ul>
-                                <li><i class="fas fa-check text-success me-2"></i> 3 Basic Missions</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Cyber Quizzes</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Community Access</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Advanced Labs</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Certification Prep</li>
-                                <li><i class="fas fa-times text-danger me-2"></i> Elite Mentoring</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <button class="pricing-button w-100" id="standardPlanBtn">Get Started</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 animate__animated animate__fadeInUp">
-                    <div class="pricing-card">
-                        <div class="pricing-header">
-                            <span class="discount-badge">50% OFF</span>
-                            <h4 class="pricing-title">Cyber Elite</h4>
-                            <div class="pricing-price">
-                                <span class="currency">$</span>
-                                <span class="amount">19.99</span>
-                                <div class="real-price-container">
-                                    <s class="real-price">$49.99</s>
-                                    <span class="period">/month</span>
-                                </div>
-                            </div>
-                            <p class="pricing-subtext">Master your expertise</p>
-                        </div>
-                        <div class="pricing-features">
-                            <ul>
-                                <li><i class="fas fa-check text-success me-2"></i> 3 Basic Missions</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Cyber Quizzes</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Community Access</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Advanced Labs</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Certification Prep</li>
-                                <li><i class="fas fa-check text-success me-2"></i> Elite Mentoring</li>
-                            </ul>
-                        </div>
-                        <div class="pricing-footer">
-                            <button class="pricing-button w-100" id="premiumPlanBtn">Get Started</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <% } %>
-
-    <!-- Call to Action -->
-    <section class="py-5 bg-primary text-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 animate__animated animate__fadeIn">
-                    <h2 class="fw-bold mb-3">Join the Cyber Elite Now!</h2>
-                    <p class="lead mb-0">Become a defender of the digital realm with CyberShield Academy.</p>
-                </div>
-                <div class="col-lg-4 text-lg-end mt-4 mt-lg-0 animate__animated animate__fadeIn">
-                    <a href="account.aspx" class="btn btn-light btn-lg px-4 btn-animated">Engage Now</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Comment Section (Visible to Paid Users) -->
-    <% if (Session["Username"] != null && (regexp_replace(regexp_replace(regexp_replace(Session["Role"], 'Elite', ''), 'Pro', ''), 'Novice', '') != Session["Role"])) { %>
-    <section class="comment-section">
+    <!-- Practice Section -->
+    <section class="practice-section">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="fw-bold mb-3 animate__animated animate__fadeIn">What Our Agents Say</h2>
-                    <p class="lead">Hear from our community of cyber defenders.</p>
-                </div>
+            <h2 class="text-center fw-bold mb-5 animate__animated animate__fadeIn">How to Practice</h2>
+            <div id="practiceSteps">
+                <!-- Practice steps will be dynamically inserted here -->
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="comment-card animate__animated animate__fadeInUp">
-                        <img src="/images/profile.jpg" alt="AgentX Profile">
-                        <div class="comment-content">
-                            <h6>AgentX</h6>
-                            <p>"I tried CyberShield Academy and it’s amazing! The Web Security Ops course helped me secure my site in just a week!"</p>
-                        </div>
-                    </div>
-                    <div class="comment-card animate__animated animate__fadeInUp">
-                        <img src="/images/profile.jpg" alt="CyberGuard Profile">
-                        <div class="comment-content">
-                            <h6>CyberGuard</h6>
-                            <p>"This platform is a lifesaver! Network Defense Tactics gave me the skills to protect my company’s network."</p>
-                        </div>
-                    </div>
-                    <div class="comment-card animate__animated animate__fadeInUp">
-                        <img src="/images/profile.jpg" alt="ShieldPro Profile">
-                        <div class="comment-content">
-                            <h6>ShieldPro</h6>
-                            <p>"Best cybersecurity training I’ve ever taken! Secure Coding Protocols made my apps so much safer."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="nextCourseButton" style="text-align: center;"></div>
         </div>
     </section>
-    <% } %>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
@@ -1145,18 +405,18 @@
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                     <h5 class="mb-3">Missions</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#courses" class="text-white text-decoration-none">Web Security</a></li>
-                        <li class="mb-2"><a href="#courses" class="text-white text-decoration-none">Network Defense</a></li>
-                        <li class="mb-2"><a href="#courses" class="text-white text-decoration-none">Secure Coding</a></li>
+                        <li class="mb-2"><a href="course.aspx?courseId=web-security" class="text-white text-decoration-none">Web Security</a></li>
+                        <li class="mb-2"><a href="course.aspx?courseId=network-defense" class="text-white text-decoration-none">Network Defense</a></li>
+                        <li class="mb-2"><a href="course.aspx?courseId=secure-coding" class="text-white text-decoration-none">Secure Coding</a></li>
                         <li><a href="#courses" class="text-white text-decoration-none">All Missions</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                     <h5 class="mb-3">Resources</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="resources.aspx" class="text-white text-decoration-none">Blog</a></li>
-                        <li class="mb-2"><a href="events.aspx?event=webinar" class="text-white text-decoration-none">Webinars</a></li>
-                        <li><a href="resources.aspx" class="text-white text-decoration-none">Community</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Webinars</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Community</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-4">
@@ -1179,58 +439,6 @@
         </div>
     </footer>
 
-    <!-- Course Info Modal -->
-    <div class="modal fade" id="courseInfoModal" tabindex="-1" aria-labelledby="courseInfoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="courseInfoModalLabel">Mission Briefing</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="courseInfoContent">
-                </div>
-                <div class="modal-footer">
-                    <span class="fun-fact"></span>
-                    <div>
-                        <button type="button" class="btn btn-secondary btn-animated" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary btn-animated enroll-btn">🚀 Enroll Now!</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pop-Up Ads -->
-    <div class="popup-overlay" id="popupOverlay1"></div>
-    <div class="popup-ad animate__animated animate__zoomIn" id="popupAd1">
-        <i class="fas fa-times close-popup" data-popup="1"></i>
-        <h5>Last Chance!</h5>
-        <h4>Save on Cyber Elite!</h4>
-        <img src="/images/logo.jpg" alt="Cyber Elite Offer">
-        <p>Act Now—Offer Ends Soon!</p>
-        <button class="btn btn-success btn-lg w-100 btn-animated" id="specialOfferPopupBtn">Claim This Now</button>
-    </div>
-
-    <div class="popup-overlay" id="popupOverlay2"></div>
-    <div class="popup-ad animate__animated animate__zoomIn" id="popupAd2">
-        <i class="fas fa-times close-popup" data-popup="2"></i>
-        <h5>Stay Secure!</h5>
-        <h4>Free Cyber Tips!</h4>
-        <img src="/images/ads1.jpg" alt="Cyber Tips">
-        <p>Essential Security Secrets!</p>
-        <button class="btn btn-primary btn-lg w-100 btn-animated" id="downloadTipsBtn">Get Tips Now</button>
-    </div>
-
-    <div class="popup-overlay" id="popupOverlay3"></div>
-    <div class="popup-ad animate__animated animate__zoomIn" id="popupAd3">
-        <i class="fas fa-times close-popup" data-popup="3"></i>
-        <h5>Secure Your Spot!</h5>
-        <h4>Cyber Elite Webinar!</h4>
-        <img src="/images/ads2.jpg" alt="Webinar Event">
-        <p>Limited Seats Available!</p>
-        <button class="btn btn-warning btn-lg w-100 btn-animated text-white" id="registerWebinarBtn">Join Now</button>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -1238,236 +446,252 @@
             const courses = {
                 'web-security': {
                     title: 'Web Security Ops',
-                    description: 'Infiltrate web vulnerabilities like XSS and SQL injection to fortify defenses.',
-                    image: '/images/course.jpeg',
+                    description: 'Learn how to infiltrate web vulnerabilities like XSS and SQL injection to fortify defenses.',
+                    overview: 'This course teaches you to identify and mitigate common web vulnerabilities, such as Cross-Site Scripting (XSS) and SQL injection, through hands-on practice and real-world scenarios.',
                     hasVideo: true,
-                    hasCertificate: true,
-                    hours: 12,
-                    details: [
-                        'Learn Secure Principles',
-                        'Master Injection Defense',
-                        'Explore Session Security'
-                    ],
-                    trivia: '💡 Fun Fact: The first XSS vulnerability was discovered in 1996!'
+                    videoEmbed: '<iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID_WEB_SECURITY" frameborder="0" allowfullscreen></iframe>',
+                    practiceSteps: [
+                        {
+                            id: 'xss',
+                            title: 'XSS Vulnerability Testing',
+                            description: '<h3 class="subsection-heading" id="xss">Cross-Site Scripting (XSS)</h3>' +
+                                         '<p>Follow these steps to practice identifying and mitigating XSS vulnerabilities:</p>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">1</span>Download the XSS Testing Tool</h5>' +
+                                         '<p>Download the XSS testing tool from the provided link: <a href="https://example.com/xss-tool.zip" target="_blank">xss-tool.zip</a>.</p>' +
+                                         '</div>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">2</span>Extract the File</h5>' +
+                                         '<p>Unzip the downloaded file using a tool like WinRAR or 7-Zip to a folder on your desktop.</p>' +
+                                         '</div>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">3</span>Place in C: Drive</h5>' +
+                                         '<p>Move the extracted folder to your C: drive, e.g., <code>C:\\XSSTool</code>, to set up your testing environment.</p>' +
+                                         '</div>' +
+                                         '</div>'
+                        },
+                        {
+                            id: 'sql-injection',
+                            title: 'SQL Injection Defense',
+                            description: '<h3 class="subsection-heading" id="sql-injection">SQL Injection Defense</h3>' +
+                                         '<p>Follow these steps to practice identifying and preventing SQL injection vulnerabilities:</p>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">1</span>Download the SQL Injection Scanner Tool</h5>' +
+                                         '<p>Download the SQL Injection Scanner tool from the provided link: <a href="http://securityproject-001-site1.qtempurl.com/courses/SQLInjectionScanner.zip" target="_blank">SQLInjectionScanner.zip</a>.</p>' +
+                                         '</div>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">2</span>Disable Windows Defender Real-Time Protection (Temporarily)</h5>' +
+                                         '<p>To temporarily disable the real-time antivirus protection on Windows 10, use these steps:</p>' +
+                                         '<div class="text-content">' +
+                                         '<p><strong>1.</strong> Open Start.</p>' +
+                                         '</div>' +
+                                         '<div class="image-content">' +
+                                         '<img src="/images/WindowsSearch.png" alt="Search for Windows Security">' +
+                                         '</div>' +
+                                         '<div class="text-content">' +
+                                         '<p><strong>2.</strong> Search for Windows Security and click the top result to open the app.</p>' +
+                                         '<p><strong>3.</strong> Click on Virus & threat protection.</p>' +
+                                         '<p><strong>4.</strong> Under the "Virus & threat protection settings" section, click the Manage settings option.</p>' +
+                                         '</div>' +
+                                         '<div class="image-content">' +
+                                         '<img src="/images/VirusThreatProtection.png" alt="Virus & Threat Protection">' +
+                                         '</div>' +
+                                         '<div class="text-content">' +
+                                         '<p><strong>5.</strong> Turn off the Real-time protection toggle switch to disable Microsoft Defender Antivirus temporarily.</p>' +
+                                         '</div>' +
+                                         '<div class="image-content">' +
+                                         '<img src="/images/RealTimeProtectionOff.png" alt="Real-Time Protection Off">' +
+                                         '</div>' +
+                                         '<p><strong>Important:</strong> Re-enable Windows Defender after completing this course to keep your system secure.</p>' +
+                                         '<p><strong>Once you complete the steps, the antivirus will temporarily disable its protection to install apps or make specific system changes without unwanted conflicts.</strong></p>' +
+                                         '</div>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">3</span>Disable Microsoft Defender SmartScreen (Temporarily)</h5>' +
+                                         '<p>Microsoft Defender SmartScreen may also block the tool. To disable it temporarily:<br>' +
+                                         '1. In the Windows Security app, click on "App & browser control".<br>' +
+                                         '2. Click on "Reputation-based protection settings".<br>' +
+                                         '3. Turn off "Check apps and files". You should see it set to "Off".<br>' +
+                                         '<strong>Important:</strong> Re-enable SmartScreen after completing this course to maintain your system’s security.</p>' +
+                                         '</div>' +
+                                         '<div class="image-content">' +
+                                         '<img src="/images/AppBrowserControl.png" alt="App & Browser Control">' +
+                                         '<img src="/images/CheckAppsFilesOff.png" alt="Check Apps and Files Off">' +
+                                         '</div>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">4</span>Extract the File</h5>' +
+                                         '<p>Unzip the downloaded file using a tool like WinRAR or 7-Zip to a folder on your desktop.</p>' +
+                                         '</div>' +
+                                         '</div>' +
+                                         '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">5</span>Place in C: Drive</h5>' +
+                                         '<p>Move the extracted folder to your C: drive, e.g., <code>C:\\SQLInjectionScanner</code>, to set up your testing environment.</p>' +
+                                         '</div>' +
+                                         '</div>'
+                        }
+                    ]
                 },
                 'network-defense': {
                     title: 'Network Defense Tactics',
                     description: 'Secure networks against advanced intrusions with elite strategies.',
-                    image: '/images/course.jpeg',
+                    overview: 'This course focuses on securing networks by implementing firewalls, detecting intrusions, and monitoring traffic to prevent cyber attacks.',
                     hasVideo: false,
-                    hasCertificate: true,
-                    hours: 15,
-                    details: [
-                        'Learn Firewall Strategies',
-                        'Master Intrusion Detection',
-                        'Explore Network Monitoring'
-                    ],
-                    trivia: '💡 Fun Fact: The largest DDoS attack peaked at 2.5 Tbps!'
+                    practiceSteps: [
+                        {
+                            title: 'Step 1: Download the Firewall Configuration Script',
+                            description: '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">1</span>Download the Firewall Configuration Script</h5>' +
+                                         '<p>Download the firewall configuration script from this link: <a href="https://example.com/firewall-script.zip" target="_blank">firewall-script.zip</a>.</p>' +
+                                         '</div>' +
+                                         '</div>'
+                        },
+                        {
+                            title: 'Step 2: Open the Script',
+                            description: '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">2</span>Open the Script</h5>' +
+                                         '<p>Extract the zip file and open the script in a text editor like Notepad or Visual Studio Code.</p>' +
+                                         '</div>' +
+                                         '</div>'
+                        },
+                        {
+                            title: 'Step 3: Save to C: Drive',
+                            description: '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">3</span>Save to C: Drive</h5>' +
+                                         '<p>Save the script in your C: drive under <code>C:\\FirewallConfig</code> for easy access during setup.</p>' +
+                                         '</div>' +
+                                         '</div>'
+                        }
+                    ]
                 },
                 'secure-coding': {
                     title: 'Secure Coding Protocols',
                     description: 'Code like a pro to eliminate vulnerabilities in your applications.',
-                    image: '/images/course.jpeg',
+                    overview: 'This course guides you through writing secure code by validating inputs, using secure APIs, and testing for vulnerabilities in your applications.',
                     hasVideo: true,
-                    hasCertificate: true,
-                    hours: 10,
-                    details: [
-                        'Learn Secure Principles',
-                        'Master Injection Defense',
-                        'Explore Session Security'
-                    ],
-                    trivia: '💡 Fun Fact: Over 80% of app vulnerabilities stem from coding errors!'
-                },
-                'ethical-hacking': {
-                    title: 'Ethical Hacking Ops',
-                    description: 'Master penetration testing to expose and fix critical vulnerabilities.',
-                    image: '/images/course.jpeg',
-                    hasVideo: true,
-                    hasCertificate: true,
-                    hours: 20,
-                    details: [
-                        'Learn Penetration Testing',
-                        'Master Exploit Development',
-                        'Explore Vulnerability Assessment'
-                    ],
-                    trivia: '💡 Fun Fact: Ethical hackers are also called "white hat" hackers!'
-                },
-                'incident-response': {
-                    title: 'Incident Response Unit',
-                    description: 'Lead rapid response to neutralize cyber breaches effectively.',
-                    image: '/images/course.jpeg',
-                    hasVideo: false,
-                    hasCertificate: false,
-                    hours: 14,
-                    details: [
-                        'Learn Breach Analysis',
-                        'Master Response Strategies',
-                        'Explore Recovery Planning'
-                    ],
-                    trivia: '💡 Fun Fact: The average time to detect a breach is 280 days!'
-                },
-                'cloud-security': {
-                    title: 'Cloud Security Defense',
-                    description: 'Protect cloud systems from advanced threats with elite tactics.',
-                    image: '/images/course.jpeg',
-                    hasVideo: 'true',
-                    hasCertificate: true,
-                    hours: 18,
-                    details: [
-                        'Learn Cloud Architecture',
-                        'Master Threat Detection',
-                        'Explore Data Encryption'
-                    ],
-                    trivia: '💡 Fun Fact: 70% of companies store sensitive data in the cloud.'
+                    videoEmbed: '<iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID_SECURE_CODING" frameborder="0" allowfullscreen></iframe>',
+                    practiceSteps: [
+                        {
+                            title: 'Step 1: Download the Sample Code Project',
+                            description: '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">1</span>Download the Sample Code Project</h5>' +
+                                         '<p>Download the sample code project from this link: <a href="https://example.com/secure-coding-project.zip" target="_blank">secure-coding-project.zip</a>.</p>' +
+                                         '</div>' +
+                                         '</div>'
+                        },
+                        {
+                            title: 'Step 2: Extract and Open the Project',
+                            description: '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">2</span>Extract and Open the Project</h5>' +
+                                         '<p>Unzip the file and open the project in an IDE like Visual Studio or IntelliJ IDEA.</p>' +
+                                         '</div>' +
+                                         '</div>'
+                        },
+                        {
+                            title: 'Step 3: Place in C: Drive',
+                            description: '<div class="practice-card animate__animated animate__fadeInUp">' +
+                                         '<div class="text-content">' +
+                                         '<h5><span class="step-number">3</span>Place in C: Drive</h5>' +
+                                         '<p>Move the project folder to your C: drive, e.g., <code>C:\\SecureCodingProject</code>, to begin practicing.</p>' +
+                                         '</div>' +
+                                         '</div>'
+                        }
+                    ]
                 }
             };
 
-            // Get user's role from server-side session
-            const userRole = '<%= Session["Role"] ?? "User" %>';
+            // Get courseId from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseId = urlParams.get('courseId');
+            const course = courses[courseId] || { title: 'Course Not Found', description: 'Please select a valid course.', overview: 'No overview available.', practiceSteps: [], hasVideo: false };
 
-            // Handle Explore buttons
-            document.querySelectorAll('.explore-course').forEach(button => {
-                button.addEventListener('click', () => {
-                    const courseId = button.getAttribute('data-course-id');
-                    const course = courses[courseId];
-                    const modalContent = document.getElementById('courseInfoContent');
+            // Update header
+            document.getElementById('courseTitle').textContent = course.title;
+            document.getElementById('courseDescription').textContent = course.description;
 
-                    // Check if user has access
-                    const hasAccess = userRole === 'Elite' || userRole === 'Pro' || userRole === 'Novice';
+            // Update overview section
+            document.getElementById('overviewTitle').textContent = course.title;
+            document.getElementById('overviewDescription').textContent = course.overview;
 
-                    modalContent.innerHTML = `
-                        <div class="course-header">
-                            <h4>${course.title}</h4>
-                            <p class="lead">${course.description}</p>
-                        </div>
-                        <div class="course-content">
-                            <div class="course-info">
-                                <div class="course-details">
-                                    <p class="certification-available ${course.hasCertificate ? 'available' : 'not-available'}">
-                                        <span class="icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Earn a CyberShield Certificate upon completion">🏆</span>
-                                        <strong>CyberShield Certificate ${course.hasCertificate ? 'after completion' : 'not available'}</strong>
-                                    </p>
-                                    <p class="video-available ${course.hasVideo ? 'available' : 'not-available'}">
-                                        <span class="icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Video tutorials available for this course">🎥</span>
-                                        <strong>Video Content ${course.hasVideo ? 'available' : 'not available'}</strong>
-                                    </p>
-                                    <p class="estimated-time">
-                                        <span class="icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Estimated time to complete the course">🕒</span>
-                                        <strong>Duration Time ${course.hours} hours</strong>
-                                    </p>
-                                    <ul>
-                                        ${course.details.map(detail => `<li>${detail}</li>`).join('')}
-                                    </ul>
-                                    ${!hasAccess ? '<div class="access-denied">Access Denied: Please upgrade to Cyber Elite, Cyber Pro, or Cyber Novice plan to enroll in this course. <a href="account.aspx">Upgrade Now</a></div>' : ''}
-                                </div>
-                            </div>
-                            <div class="course-image-container">
-                                <img src="${course.image}" alt="${course.title}" class="course-image">
-                            </div>
-                        </div>
-                    `;
+            // Update video section
+            const videoContainer = document.getElementById('videoContainer');
+            if (course.hasVideo && course.videoEmbed) {
+                videoContainer.innerHTML = course.videoEmbed;
+            } else {
+                videoContainer.innerHTML = '<div class="video-placeholder">Video Content Not Available for This Course</div>';
+            }
 
-                    document.querySelector('.modal-footer .fun-fact').textContent = course.trivia;
+            // Manage course progression for Web Security
+            const practiceStepsContainer = document.getElementById('practiceSteps');
+            const nextCourseButtonContainer = document.getElementById('nextCourseButton');
+            let currentStepIndex = 0;
 
-                    // Initialize tooltips
-                    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-                    tooltipTriggerList.map(function (tooltipTriggerEl) {
-                        return new bootstrap.Tooltip(tooltipTriggerEl);
-                    });
+            // Check if we're on the Web Security course
+            if (courseId === 'web-security') {
+                // Load the initial step (XSS)
+                const renderStep = (index) => {
+                    practiceStepsContainer.innerHTML = course.practiceSteps[index].description;
 
-                    const modal = new bootstrap.Modal(document.getElementById('courseInfoModal'));
-                    modal.show();
-
-                    // Set enroll button behavior
-                    const enrollBtn = document.querySelector('#courseInfoModal .enroll-btn');
-                    enrollBtn.setAttribute('data-course-id', courseId);
-                    enrollBtn.setAttribute('data-has-access', hasAccess);
-                });
-            });
-
-            // Handle Enroll buttons
-            document.querySelectorAll('.enroll-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const courseId = btn.getAttribute('data-course-id');
-                    const hasAccess = btn.getAttribute('data-has-access') === 'true';
-
-                    if (hasAccess) {
-                        window.location.href = `course.aspx?courseId=${courseId}`;
+                    // Show "Next Course" button if not on the last step
+                    if (index < course.practiceSteps.length - 1) {
+                        nextCourseButtonContainer.innerHTML = '<a href="#" class="next-course-btn" id="nextCourseBtn">Next Course</a>';
+                        document.getElementById('nextCourseBtn').addEventListener('click', (e) => {
+                            e.preventDefault();
+                            currentStepIndex++;
+                            renderStep(currentStepIndex);
+                            // Update URL hash to reflect the current section
+                            window.location.hash = course.practiceSteps[currentStepIndex].id;
+                        });
                     } else {
-                        window.location.href = 'account.aspx';
+                        nextCourseButtonContainer.innerHTML = '';
                     }
+                };
+
+                // Check URL hash to determine starting step
+                const hash = window.location.hash.replace('#', '');
+                if (hash === 'sql-injection' && localStorage.getItem('xssCompleted')) {
+                    currentStepIndex = 1;
+                }
+
+                // Render the initial step
+                renderStep(currentStepIndex);
+
+                // Mark XSS as completed when the user clicks "Next Course"
+                if (currentStepIndex === 0) {
+                    document.addEventListener('click', (e) => {
+                        if (e.target.id === 'nextCourseBtn') {
+                            localStorage.setItem('xssCompleted', 'true');
+                        }
+                    });
+                }
+            } else {
+                // For other courses, render all steps as before
+                course.practiceSteps.forEach((step) => {
+                    const stepCard = document.createElement('div');
+                    stepCard.className = 'practice-card animate__animated animate__fadeInUp';
+                    stepCard.innerHTML = `
+                        <h5>${step.title}</h5>
+                        <div>${step.description}</div>
+                    `;
+                    practiceStepsContainer.appendChild(stepCard);
                 });
-            });
-
-            // Pop-Up Logic
-            const popups = [
-                { overlay: document.getElementById('popupOverlay1'), ad: document.getElementById('popupAd1'), delay: 30000 },
-                { overlay: document.getElementById('popupOverlay2'), ad: document.getElementById('popupAd2'), delay: 75000 },
-                { overlay: document.getElementById('popupOverlay3'), ad: document.getElementById('popupAd3'), delay: 135000 }
-            ];
-
-            let currentPopupIndex = 0;
-            let isPopupVisible = false;
-
-            const showNextPopup = () => {
-                if (isPopupVisible || currentPopupIndex >= popups.length) return;
-                const currentPopup = popups[currentPopupIndex];
-                currentPopup.overlay.style.display = 'block';
-                currentPopup.ad.style.display = 'block';
-                isPopupVisible = true;
-            };
-
-            const closePopup = (index) => {
-                const currentPopup = popups[index];
-                currentPopup.ad.classList.remove('animate__zoomIn');
-                currentPopup.ad.classList.add('animate__zoomOut');
-                setTimeout(() => {
-                    currentPopup.overlay.style.display = 'none';
-                    currentPopup.ad.style.display = 'none';
-                    isPopupVisible = false;
-                    currentPopupIndex++;
-                    if (currentPopupIndex < popups.length) setTimeout(showNextPopup, 5000);
-                }, 500);
-            };
-
-            popups.forEach((popup, index) => {
-                setTimeout(() => { if (index === 0) showNextPopup(); }, popup.delay);
-            });
-
-            document.querySelectorAll('.close-popup').forEach(closeBtn => {
-                closeBtn.addEventListener('click', () => {
-                    const popupIndex = parseInt(closeBtn.getAttribute('data-popup')) - 1;
-                    closePopup(popupIndex);
-                });
-            });
-
-            document.getElementById('specialOfferPopupBtn')?.addEventListener('click', () => {
-                closePopup(0);
-                window.location.href = 'account.aspx?offer=special';
-            });
-
-            document.getElementById('downloadTipsBtn')?.addEventListener('click', () => {
-                closePopup(1);
-                window.location.href = 'resources.aspx?download=tips';
-            });
-
-            document.getElementById('registerWebinarBtn')?.addEventListener('click', () => {
-                closePopup(2);
-                window.location.href = 'events.aspx?event=webinar';
-            });
-
-            // Handle Pricing Buttons
-            document.getElementById('freePlanBtn')?.addEventListener('click', () => {
-                window.location.href = 'account.aspx?plan=free';
-            });
-
-            document.getElementById('standardPlanBtn')?.addEventListener('click', () => {
-                window.location.href = 'account.aspx?plan=standard';
-            });
-
-            document.getElementById('premiumPlanBtn')?.addEventListener('click', () => {
-                window.location.href = 'account.aspx?plan=premium';
-            });
+            }
         });
     </script>
 </body>
