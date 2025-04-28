@@ -95,7 +95,7 @@
 
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, rgba(13, 110, 253, 0.8), rgba(10, 88, 202, 0.8)), url('https://via.placeholder.com/1500x600?text=Cyber+Matrix');
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.8), rgba(10, 88, 202, 0.8)), url('/images/banner.jpg');
             background-blend-mode: overlay;
             background-size: cover;
             background-position: center;
@@ -659,6 +659,54 @@
                 transform: rotate(90deg);
             }
 
+        /* Comment Section */
+        .comment-section {
+            background: #1a1a3d;
+            padding: 3rem 0;
+        }
+
+        .comment-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #00d4ff;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .comment-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .comment-card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
+        .comment-content {
+            flex-grow: 1;
+        }
+
+        .comment-content h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .comment-content p {
+            font-size: 1rem;
+            color: #e0e0e0;
+            margin: 0;
+        }
+
         /* Footer Styling */
         footer {
             background: #0a0a23 !important;
@@ -682,6 +730,17 @@
             border: 1px solid #ff5555;
             padding: 1rem;
             margin: 1rem 0;
+            border-radius: 5px;
+            color: #ff5555;
+            text-align: center;
+        }
+
+        /* Access Denied Message in Modal */
+        .access-denied {
+            background-color: rgba(255, 0, 0, 0.2);
+            border: 1px solid #ff5555;
+            padding: 1rem;
+            margin-top: 1rem;
             border-radius: 5px;
             color: #ff5555;
             text-align: center;
@@ -752,7 +811,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 animate__animated animate__fadeInRight">
-                    <img src="https://via.placeholder.com/600x400?text=Cyber+Matrix" alt="Cybersecurity Ops" class="img-fluid rounded shadow">
+                    <img src="/images/banner.jpg" alt="Cybersecurity Ops" class="img-fluid rounded shadow">
                 </div>
             </div>
         </div>
@@ -822,7 +881,7 @@
                 <!-- Course 1: Web Security Ops -->
                 <div class="col-lg-4 col-md-6">
                     <div class="card lab-card">
-                        <img src="https://via.placeholder.com/400x150?text=Web+Security+Ops" alt="Web Security Ops" class="card-img-top">
+                        <img src="/images/course.jpeg" alt="Web Security Ops" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Web Security Ops</h5>
                             <p class="card-text">Infiltrate web vulnerabilities like XSS and SQL injection to fortify defenses.</p>
@@ -835,7 +894,7 @@
                 <!-- Course 2: Network Defense Tactics -->
                 <div class="col-lg-4 col-md-6">
                     <div class="card lab-card">
-                        <img src="https://via.placeholder.com/400x150?text=Network+Defense+Tactics" alt="Network Defense Tactics" class="card-img-top">
+                        <img src="/images/course.jpeg" alt="Network Defense Tactics" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Network Defense Tactics</h5>
                             <p class="card-text">Secure networks against advanced intrusions with elite strategies.</p>
@@ -848,7 +907,7 @@
                 <!-- Course 3: Secure Coding Protocols -->
                 <div class="col-lg-4 col-md-6">
                     <div class="card lab-card">
-                        <img src="https://via.placeholder.com/400x150?text=Secure+Coding+Protocols" alt="Secure Coding Protocols" class="card-img-top">
+                        <img src="/images/course.jpeg" alt="Secure Coding Protocols" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Secure Coding Protocols</h5>
                             <p class="card-text">Code like a pro to eliminate vulnerabilities in your applications.</p>
@@ -861,7 +920,7 @@
                 <!-- Course 4: Ethical Hacking Ops -->
                 <div class="col-lg-4 col-md-6">
                     <div class="card lab-card">
-                        <img src="https://via.placeholder.com/400x150?text=Ethical+Hacking+Ops" alt="Ethical Hacking Ops" class="card-img-top">
+                        <img src="/images/course.jpeg" alt="Ethical Hacking Ops" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Ethical Hacking Ops</h5>
                             <p class="card-text">Master penetration testing to expose and fix critical vulnerabilities.</p>
@@ -874,7 +933,7 @@
                 <!-- Course 5: Incident Response Unit -->
                 <div class="col-lg-4 col-md-6">
                     <div class="card lab-card">
-                        <img src="https://via.placeholder.com/400x150?text=Incident+Response+Unit" alt="Incident Response Unit" class="card-img-top">
+                        <img src="/images/course.jpeg" alt="Incident Response Unit" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Incident Response Unit</h5>
                             <p class="card-text">Lead rapid response to neutralize cyber breaches effectively.</p>
@@ -887,7 +946,7 @@
                 <!-- Course 6: Cloud Security Defense -->
                 <div class="col-lg-4 col-md-6">
                     <div class="card lab-card">
-                        <img src="https://via.placeholder.com/400x150?text=Cloud+Security+Defense" alt="Cloud Security Defense" class="card-img-top">
+                        <img src="/images/course.jpeg" alt="Cloud Security Defense" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Cloud Security Defense</h5>
                             <p class="card-text">Protect cloud systems from advanced threats with elite tactics.</p>
@@ -1024,6 +1083,45 @@
         </div>
     </section>
 
+    <!-- Comment Section (Visible to Paid Users) -->
+    <% if (Session["Username"] != null && (Session["Role"] == "Elite" || Session["Role"] == "Pro" || Session["Role"] == "Novice")) { %>
+    <section class="comment-section">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="fw-bold mb-3 animate__animated animate__fadeIn">What Our Agents Say</h2>
+                    <p class="lead">Hear from our community of cyber defenders.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="comment-card animate__animated animate__fadeInUp">
+                        <img src="/images/profile.jpg" alt="AgentX Profile">
+                        <div class="comment-content">
+                            <h6>AgentX</h6>
+                            <p>"The Web Security Ops course was a game-changer! Stopped an XSS attack in its tracks."</p>
+                        </div>
+                    </div>
+                    <div class="comment-card animate__animated animate__fadeInUp">
+                        <img src="/images/profile.jpg" alt="CyberGuard Profile">
+                        <div class="comment-content">
+                            <h6>CyberGuard</h6>
+                            <p>"Thanks to Network Defense Tactics, I secured my company's network against intrusions."</p>
+                        </div>
+                    </div>
+                    <div class="comment-card animate__animated animate__fadeInUp">
+                        <img src="/images/profile.jpg" alt="ShieldPro Profile">
+                        <div class="comment-content">
+                            <h6>ShieldPro</h6>
+                            <p>"Secure Coding Protocols taught me how to eliminate vulnerabilities in my apps. Highly recommend!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <% } %>
+
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
         <div class="container">
@@ -1102,7 +1200,7 @@
         <i class="fas fa-times close-popup" data-popup="1"></i>
         <h5>Last Chance!</h5>
         <h4>Save on Cyber Elite!</h4>
-        <img src="https://via.placeholder.com/250x200?text=Cyber+Elite+Offer" alt="Cyber Elite Offer">
+        <img src="/images/logo.jpg" alt="Cyber Elite Offer">
         <p>Act Now—Offer Ends Soon!</p>
         <button class="btn btn-success btn-lg w-100 btn-animated" id="specialOfferPopupBtn">Claim This Now</button>
     </div>
@@ -1112,7 +1210,7 @@
         <i class="fas fa-times close-popup" data-popup="2"></i>
         <h5>Stay Secure!</h5>
         <h4>Free Cyber Tips!</h4>
-        <img src="https://via.placeholder.com/250x200?text=Cyber+Tips" alt="Cyber Tips">
+        <img src="/images/ads1.jpg" alt="Cyber Tips">
         <p>Essential Security Secrets!</p>
         <button class="btn btn-primary btn-lg w-100 btn-animated" id="downloadTipsBtn">Get Tips Now</button>
     </div>
@@ -1122,7 +1220,7 @@
         <i class="fas fa-times close-popup" data-popup="3"></i>
         <h5>Secure Your Spot!</h5>
         <h4>Cyber Elite Webinar!</h4>
-        <img src="https://via.placeholder.com/250x200?text=Webinar+Event" alt="Webinar Event">
+        <img src="/images/ads2.jpg" alt="Webinar Event">
         <p>Limited Seats Available!</p>
         <button class="btn btn-warning btn-lg w-100 btn-animated text-white" id="registerWebinarBtn">Join Now</button>
     </div>
@@ -1135,7 +1233,7 @@
                 'web-security': {
                     title: 'Web Security Ops',
                     description: 'Infiltrate web vulnerabilities like XSS and SQL injection to fortify defenses.',
-                    image: 'https://via.placeholder.com/600x300?text=Web+Security+Ops',
+                    image: '/images/course.jpeg',
                     hasVideo: true,
                     hasCertificate: true,
                     hours: 12,
@@ -1149,7 +1247,7 @@
                 'network-defense': {
                     title: 'Network Defense Tactics',
                     description: 'Secure networks against advanced intrusions with elite strategies.',
-                    image: 'https://via.placeholder.com/600x300?text=Network+Defense+Tactics',
+                    image: '/images/course.jpeg',
                     hasVideo: false,
                     hasCertificate: true,
                     hours: 15,
@@ -1163,7 +1261,7 @@
                 'secure-coding': {
                     title: 'Secure Coding Protocols',
                     description: 'Code like a pro to eliminate vulnerabilities in your applications.',
-                    image: 'https://via.placeholder.com/600x300?text=Secure+Coding+Protocols',
+                    image: '/images/course.jpeg',
                     hasVideo: true,
                     hasCertificate: true,
                     hours: 10,
@@ -1177,7 +1275,7 @@
                 'ethical-hacking': {
                     title: 'Ethical Hacking Ops',
                     description: 'Master penetration testing to expose and fix critical vulnerabilities.',
-                    image: 'https://via.placeholder.com/600x300?text=Ethical+Hacking+Ops',
+                    image: '/images/course.jpeg',
                     hasVideo: true,
                     hasCertificate: true,
                     hours: 20,
@@ -1191,7 +1289,7 @@
                 'incident-response': {
                     title: 'Incident Response Unit',
                     description: 'Lead rapid response to neutralize cyber breaches effectively.',
-                    image: 'https://via.placeholder.com/600x300?text=Incident+Response+Unit',
+                    image: '/images/course.jpeg',
                     hasVideo: false,
                     hasCertificate: false,
                     hours: 14,
@@ -1205,8 +1303,8 @@
                 'cloud-security': {
                     title: 'Cloud Security Defense',
                     description: 'Protect cloud systems from advanced threats with elite tactics.',
-                    image: 'https://via.placeholder.com/600x300?text=Cloud+Security+Defense',
-                    hasVideo: true,
+                    image: '/images/course.jpeg',
+                    hasVideo: 'true',
                     hasCertificate: true,
                     hours: 18,
                     details: [
@@ -1218,12 +1316,19 @@
                 }
             };
 
+            // Get user's role from server-side session
+            const userRole = '<%= Session["Role"] ?? "User" %>';
+
             // Handle Explore buttons
             document.querySelectorAll('.explore-course').forEach(button => {
                 button.addEventListener('click', () => {
                     const courseId = button.getAttribute('data-course-id');
                     const course = courses[courseId];
                     const modalContent = document.getElementById('courseInfoContent');
+
+                    // Check if user has access
+                    const hasAccess = userRole === 'Elite' || userRole === 'Pro' || userRole === 'Novice';
+
                     modalContent.innerHTML = `
                         <div class="course-header">
                             <h4>${course.title}</h4>
@@ -1247,6 +1352,7 @@
                                     <ul>
                                         ${course.details.map(detail => `<li>${detail}</li>`).join('')}
                                     </ul>
+                                    ${!hasAccess ? '<div class="access-denied">Access Denied: Please upgrade to Cyber Elite, Cyber Pro, or Cyber Novice plan to enroll in this course. <a href="account.aspx">Upgrade Now</a></div>' : ''}
                                 </div>
                             </div>
                             <div class="course-image-container">
@@ -1269,6 +1375,7 @@
                     // Set enroll button behavior
                     const enrollBtn = document.querySelector('#courseInfoModal .enroll-btn');
                     enrollBtn.setAttribute('data-course-id', courseId);
+                    enrollBtn.setAttribute('data-has-access', hasAccess);
                 });
             });
 
@@ -1276,11 +1383,13 @@
             document.querySelectorAll('.enroll-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const courseId = btn.getAttribute('data-course-id');
-                    <% if (Session["Username"] != null) { %>
+                    const hasAccess = btn.getAttribute('data-has-access') === 'true';
+
+                    if (hasAccess) {
                         window.location.href = `course.aspx?courseId=${courseId}`;
-                    <% } else { %>
+                    } else {
                         window.location.href = 'account.aspx';
-                    <% } %>
+                    }
                 });
             });
 

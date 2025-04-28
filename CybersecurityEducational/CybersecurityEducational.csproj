@@ -59,6 +59,8 @@
   <ItemGroup>
     <Content Include="account.aspx" />
     <Content Include="course.aspx" />
+    <Content Include="images\ads1.jpg" />
+    <Content Include="images\ads2.jpg" />
     <Content Include="images\AppBrowserControl.png" />
     <Content Include="images\CheckAppsFilesOff.png" />
     <Content Include="images\RealTimeProtectionOff.png" />
