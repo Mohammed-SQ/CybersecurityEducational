@@ -59,6 +59,12 @@
   <ItemGroup>
     <Content Include="account.aspx" />
     <Content Include="course.aspx" />
+    <Content Include="images\AppBrowserControl.png" />
+    <Content Include="images\CheckAppsFilesOff.png" />
+    <Content Include="images\RealTimeProtectionOff.png" />
+    <Content Include="images\VirusThreatProtection.png" />
+    <Content Include="images\WindowsSearch.png" />
+    <Content Include="images\WindowsSecurityHome.png" />
     <Content Include="index.aspx" />
     <Content Include="security_lab.html" />
     <Content Include="payment_demo.html" />
