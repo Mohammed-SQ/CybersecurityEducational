@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="account.aspx" />
+    <Content Include="confirmation.aspx" />
     <Content Include="course.aspx" />
     <Content Include="images\ads1.jpg" />
     <Content Include="images\ads2.jpg" />
@@ -68,8 +69,8 @@
     <Content Include="images\WindowsSearch.png" />
     <Content Include="images\WindowsSecurityHome.png" />
     <Content Include="index.aspx" />
+    <Content Include="payment.aspx" />
     <Content Include="security_lab.html" />
-    <Content Include="payment_demo.html" />
     <Content Include="styles.css" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\course.jpeg" />
@@ -85,6 +86,13 @@
     <Compile Include="account.aspx.designer.cs">
       <DependentUpon>account.aspx</DependentUpon>
     </Compile>
+    <Compile Include="confirmation.aspx.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmation.aspx.designer.cs">
+      <DependentUpon>confirmation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="course.aspx.cs">
       <DependentUpon>course.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -98,6 +106,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="payment.aspx.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="payment.aspx.designer.cs">
+      <DependentUpon>payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

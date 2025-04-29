@@ -566,7 +566,7 @@
             .pricing-features li {
                 font-size: 1rem;
                 margin-bottom: 0.5rem;
-                text-shadow:  quotidienne: 0 0 3px rgba(224, 224, 224, 0.5);
+                text-shadow: 0 0 3px rgba(224, 224, 224, 0.5);
             }
 
         .pricing-footer {
@@ -768,13 +768,12 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" 
+                ="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.aspx">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
-                    <% if (Session["Username"] == null) { %>
                     <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-                    <% } %>
                     <li class="nav-item"><a class="nav-link" href="security_lab.aspx">Security Lab</a></li>
                     <li class="nav-item"><a class="nav-link" href="account.aspx">Account</a></li>
                     <% if (Session["Username"] != null) { %>
@@ -969,8 +968,7 @@
         </div>
     </section>
 
-    <!-- Pricing Section (Hidden if Logged In) -->
-    <% if (Session["Username"] == null) { %>
+    <!-- Pricing Section (Always Visible) -->
     <section id="pricing" class="py-5">
         <div class="container">
             <div class="row text-center mb-5">
@@ -1072,7 +1070,6 @@
             </div>
         </div>
     </section>
-    <% } %>
 
     <!-- Call to Action -->
     <section class="py-5 bg-primary text-white">
@@ -1458,15 +1455,15 @@
 
             // Handle Pricing Buttons
             document.getElementById('freePlanBtn')?.addEventListener('click', () => {
-                window.location.href = 'account.aspx?plan=free';
+                window.location.href = 'payment.aspx?plan=free';
             });
 
             document.getElementById('standardPlanBtn')?.addEventListener('click', () => {
-                window.location.href = 'account.aspx?plan=standard';
+                window.location.href = 'payment.aspx?plan=standard';
             });
 
             document.getElementById('premiumPlanBtn')?.addEventListener('click', () => {
-                window.location.href = 'account.aspx?plan=premium';
+                window.location.href = 'payment.aspx?plan=premium';
             });
         });
     </script>

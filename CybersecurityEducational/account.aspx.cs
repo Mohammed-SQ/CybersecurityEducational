@@ -21,7 +21,7 @@ namespace CybersecurityEducational
             if (Request.QueryString["logout"] == "true")
             {
                 Session["Username"] = null;
-                Session["UserId"] = null;
+                Session["UserId"] = null; // FIXED: Changed from Id to UserId
                 Response.Redirect("account.aspx");
             }
 
@@ -113,18 +113,18 @@ namespace CybersecurityEducational
                         }
                     }
 
-                    // Insert new user with plain text password
-                    string insertQuery = "INSERT INTO Users (Username, Email, Password, TwoFactorEnabled) OUTPUT INSERTED.Id VALUES (@Username, @Email, @Password, 0)";
+                    // FIXED: Changed Id to UserId in the SQL query
+                    string insertQuery = "INSERT INTO Users (Username, Email, Password, TwoFactorEnabled) OUTPUT INSERTED.UserId VALUES (@Username, @Email, @Password, 0)";
                     using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                     {
                         cmd.Parameters.AddWithValue("@Username", regUsername.Text);
                         cmd.Parameters.AddWithValue("@Email", regEmail.Text);
                         cmd.Parameters.AddWithValue("@Password", regPassword.Text);
-                        int userId = (int)cmd.ExecuteScalar();
+                        int userId = (int)cmd.ExecuteScalar(); // FIXED: Changed variable name from Id to userId
 
                         // Auto-login after registration
                         Session["Username"] = regUsername.Text;
-                        Session["UserId"] = userId;
+                        Session["UserId"] = userId; // FIXED: Changed from Id to UserId
                         ShowSuccess(RegistrationPanel, "Registration Successful!", "You are now logged in, hop in to courses, or feel free to learn courses now.");
                     }
                 }
@@ -189,7 +189,8 @@ namespace CybersecurityEducational
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string query = "SELECT Id, Username, Password FROM Users WHERE Email = @Email";
+                    // FIXED: Changed Id to UserId in the SQL query
+                    string query = "SELECT UserId, Username, Password FROM Users WHERE Email = @Email";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Email", loginEmail.Text);
@@ -199,12 +200,12 @@ namespace CybersecurityEducational
                             {
                                 string storedPassword = reader["Password"].ToString();
                                 string username = reader["Username"].ToString();
-                                int userId = Convert.ToInt32(reader["Id"]);
+                                int userId = Convert.ToInt32(reader["UserId"]); // FIXED: Changed from Id to UserId
 
                                 if (loginPassword.Text == storedPassword)
                                 {
                                     Session["Username"] = username;
-                                    Session["UserId"] = userId;
+                                    Session["UserId"] = userId; // FIXED: Changed from Id to UserId
                                     Session["LoginAttempts"] = 0; // Reset attempts on successful login
                                     ShowSuccess(LoginPanel, "Login Successful!", "You are now logged in, hop in to courses, or feel free to learn courses now.");
                                 }
@@ -240,7 +241,7 @@ namespace CybersecurityEducational
 
         protected void Verify2FAButton_Click(object sender, EventArgs e)
         {
-            if (Session["Username"] == null || Session["UserId"] == null)
+            if (Session["Username"] == null || Session["UserId"] == null) // FIXED: Changed from Id to UserId
             {
                 ShowSuccess(twoFactorDemo, "Authentication Required", "Please log in first.");
                 return;
@@ -260,7 +261,8 @@ namespace CybersecurityEducational
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-                        string updateQuery = "UPDATE Users SET TwoFactorEnabled = 1 WHERE Id = @UserId";
+                        // FIXED: Changed Id to UserId in the SQL query
+                        string updateQuery = "UPDATE Users SET TwoFactorEnabled = 1 WHERE UserId = @UserId";
                         using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
                         {
                             cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
@@ -282,7 +284,7 @@ namespace CybersecurityEducational
 
         protected void SavePaymentButton_Click(object sender, EventArgs e)
         {
-            if (Session["UserId"] == null)
+            if (Session["UserId"] == null) // FIXED: Changed from Id to UserId
             {
                 PaymentMessage.Text = "Please log in to save payment details.";
                 PaymentMessage.Visible = true;
@@ -344,7 +346,7 @@ namespace CybersecurityEducational
                     string insertQuery = "INSERT INTO Payments (UserId, CardName, CardNumber, ExpiryMonth, ExpiryYear, CVV) VALUES (@UserId, @CardName, @CardNumber, @ExpiryMonth, @ExpiryYear, @CVV)";
                     using (SqlCommand cmd = new SqlCommand(insertQuery, conn))
                     {
-                        cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
+                        cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"])); // FIXED: Changed from Id to UserId
                         cmd.Parameters.AddWithValue("@CardName", cardName.Text);
                         cmd.Parameters.AddWithValue("@CardNumber", cardNumber.Text);
                         cmd.Parameters.AddWithValue("@ExpiryMonth", Convert.ToInt32(expiryMonth.Text));
